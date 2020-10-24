@@ -33,6 +33,8 @@ def load_data():
       
 
 # process data
+# TODO: consider an overall speed-up using Alfe's answer from here:
+# https://stackoverflow.com/questions/19560498/faster-way-to-remove-stop-words-in-python
 def process_data(documents_by_class):
   """"""
   for topic_documents in documents_by_class:
@@ -54,6 +56,8 @@ def process_data(documents_by_class):
     topic_documents[:] = [document.split() for document in topic_documents]
   
     # remove stopwords (use nltk?)
+    # TODO: speed this up
+    # see: https://stackoverflow.com/questions/19560498/faster-way-to-remove-stop-words-in-python
     topic_documents[:] = [[word for word in doc if word not in stopwords.words("english")] 
                           for doc in topic_documents]
     
@@ -68,21 +72,20 @@ def process_data(documents_by_class):
 # evaluate the model
 
 if __name__ == "__main__":     
-  documents_by_class = load_data()    
-  # topic_1 = documents_by_class[0]
-  # topic_1[:] = [' '.join(document.split()) for document in topic_1]
-  # print(topic_1[0], '\n') 
-  # print(documents_by_class[0][0])
-  #print(single_doc)
-  # single_doc = ' '.join(single_doc.split())
-  #print(single_doc)
-  # single_doc = re.sub('[^a-zA-Z]', ' ', single_doc)
-  # print(single_doc)
+  documents_by_class = load_data()   
+  documents_by_class[:] = process_data(documents_by_class)  
+  for topic_documents in documents_by_class:
+    print('New topic\n')
+    for document in topic_documents:
+      print(document[:50], '\n')
 
-  #documents_by_class[:] = process_data(documents_by_class)
-  # for document in documents_by_class[0]:
-  #   print(document[:50])
-  # for topic_documents in documents_by_class:
-  #   print('New topic\n')
-  #   for document in topic_documents:
-  #     print(document[:50], '\n')
+
+# topic_1 = documents_by_class[0]
+# topic_1[:] = [' '.join(document.split()) for document in topic_1]
+# print(topic_1[0], '\n') 
+# print(documents_by_class[0][0])
+#print(single_doc)
+# single_doc = ' '.join(single_doc.split())
+#print(single_doc)
+# single_doc = re.sub('[^a-zA-Z]', ' ', single_doc)
+# print(single_doc)
