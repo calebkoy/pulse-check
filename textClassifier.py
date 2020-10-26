@@ -1,91 +1,103 @@
-import nltk
 import os
-import re
+import csv
+import pandas as pd
 
-from nltk.corpus import stopwords
-
-# load in data
+# load in movie review data
 def load_data():
-  """"""
+  imdb_dataset = os.path.join(os.getcwd(), 'imdb-dataset', 'IMDB-Dataset')
+  reviews_df = pd.read_csv(imdb_dataset)
+  reviews_df.head()
+
+
+# process the data 
+## separate into train and test
+## remove HTML tags (use BeautifulSoup)
+## remove punctuation and numbers (but not \s?)
+## remove words of length less than 3
+## remove stop words
+## lowercase everything
+## lemmatise
+## split into train and test sets
+## convert to bow
+### collect unique words in corpus to form your vocab (for train and then for test)
+### construct document-term matrix (use CountVectorizer?)
+### apply tf-idf (consider TfidfVectorizer)
+
+# apply laplace smoothing (does this go under implementation of the classifier?)
+
+# implement the classifier
+
+# train the classifier 
+
+# evaluate the classifier
+
+def create_review_df(path, output_path):
+  reviews = []
+  encoding = "utf8"
+  for filename in os.listdir(path):
+    with open(os.path.join(path, filename), encoding=encoding) as f:
+      reviews.append(f.read())
+  reviews_df = pd.DataFrame({'review': reviews})
+  reviews_df.to_csv(output_path, index=False)
+
+if __name__ == "__main__":
+  movie_reviews_path = os.path.join(os.getcwd(), 'movie-reviews')
+  train_path = os.path.join(movie_reviews_path, 'train')
+  test_path = os.path.join(movie_reviews_path, 'test')
   
-  topics = ['business', 
-            'entertainment',
-            'politics', 
-            'sport', 
-            'tech']
+  train_pos_path = os.path.join(train_path, 'pos')
+  train_neg_path = os.path.join(train_path, 'neg')
+  test_pos_path = os.path.join(test_path, 'pos')
+  test_neg_path = os.path.join(test_path, 'neg')
+
+  create_review_df(test_neg_path, os.path.join(test_path, 'reviews-neg.csv'))
   
-  data_directory = os.path.join(os.getcwd(), 'data')
-  documents_by_class = []
-  # for each topic:
-  for topic in topics:
-    documents = []
-    # open the corresponding directory
-    directory = os.path.join(data_directory, topic)
-    # for each file in the directory
-    for filename in os.listdir(directory):
-      # read the contents of the file as a string
-      # and place the result in a list corresponding 
-      # to documents for that class
-      with open(os.path.join(directory, filename)) as f:
-        documents.append(f.read())
-    documents_by_class.append(documents)
-  return documents_by_class
-      
-
-# process data
-# TODO: consider an overall speed-up using Alfe's answer from here:
-# https://stackoverflow.com/questions/19560498/faster-way-to-remove-stop-words-in-python
-def process_data(documents_by_class):
-  """"""
-  for topic_documents in documents_by_class:
-    # remove spaces
-    topic_documents[:] = [' '.join(document.split()) for document in topic_documents]
-    
-    # remove punctuation ( !"£$%^&*()-_+=[]{};:'@#~\|,<.>/? ) and numbers
-    # TODO: consider if there's an optimisation using a lambda function
-    topic_documents[:] = [re.sub('[^a-zA-Z]', ' ', document) for document in topic_documents]             
-        
-    # consider removing single-character words 
-    # (which might be the result of removing punctuation and numbers)
-    topic_documents[:] = [' '.join([w for w in document.split() if len(w) > 1]) for document in topic_documents]
+  #create_review_df(os.path.join(train_path, 'temp'), os.path.join(train_path, 'temp-reviews.csv'))  
+  #temp_df = pd.read_csv(os.path.join(train_path, 'temp-reviews.csv'))
+  #print(temp_df)
+  #print(temp_df['review'][6])
   
-    # lowercase all words
-    topic_documents[:] = [document.lower() for document in topic_documents]
+  #load_data()    
   
-    # tokenize
-    topic_documents[:] = [document.split() for document in topic_documents]
+  # print(train_neg[0], '\n')
+  # print(train_neg[-1], '\n')
+  # print(train_pos[0], '\n')
+  # print(train_pos[-1], '\n')
+  # print(test_neg[0], '\n')
+  # print(test_neg[-1], '\n')
+  # print(test_pos[0], '\n')
+  # print(test_pos[-1], '\n')
+
+# def load_data():
+#   """"""
+#   cwd = os.getcwd()
+#   reviews_dir = os.path.join(cwd, 'movie-reviews')
+#   test_dir = os.path.join(reviews_dir, 'test')
+#   train_dir = os.path.join(reviews_dir, 'train')
+#   encoding = "utf8"
   
-    # remove stopwords (use nltk?)
-    # TODO: speed this up
-    # see: https://stackoverflow.com/questions/19560498/faster-way-to-remove-stop-words-in-python
-    topic_documents[:] = [[word for word in doc if word not in stopwords.words("english")] 
-                          for doc in topic_documents]
-    
-    # lemmatize the words
+#   train_neg = []
+#   train_neg_dir = os.path.join(train_dir, 'neg')
+#   for filename in os.listdir(train_neg_dir):
+#     with open(os.path.join(train_neg_dir, filename), encoding=encoding) as f:
+#       train_neg.append(f.read())
 
-  return documents_by_class
+#   train_pos = []
+#   train_pos_dir = os.path.join(train_dir, 'pos')
+#   for filename in os.listdir(train_pos_dir):
+#     with open(os.path.join(train_pos_dir, filename), encoding=encoding) as f:
+#       train_pos.append(f.read())
 
-# split data into train and test and validation (use k-fold cross-validation)
+#   test_neg = []
+#   test_neg_dir = os.path.join(test_dir, 'neg')
+#   for filename in os.listdir(test_neg_dir):
+#     with open(os.path.join(test_neg_dir, filename), encoding=encoding) as f:
+#       test_neg.append(f.read())
 
-# train the model
+#   test_pos = []
+#   test_pos_dir = os.path.join(test_dir, 'pos')
+#   for filename in os.listdir(test_pos_dir):
+#     with open(os.path.join(test_pos_dir, filename), encoding=encoding) as f:
+#       test_pos.append(f.read())
 
-# evaluate the model
-
-if __name__ == "__main__":     
-  documents_by_class = load_data()   
-  documents_by_class[:] = process_data(documents_by_class)  
-  for topic_documents in documents_by_class:
-    print('New topic\n')
-    for document in topic_documents:
-      print(document[:50], '\n')
-
-
-# topic_1 = documents_by_class[0]
-# topic_1[:] = [' '.join(document.split()) for document in topic_1]
-# print(topic_1[0], '\n') 
-# print(documents_by_class[0][0])
-#print(single_doc)
-# single_doc = ' '.join(single_doc.split())
-#print(single_doc)
-# single_doc = re.sub('[^a-zA-Z]', ' ', single_doc)
-# print(single_doc)
+#   return train_neg, train_pos, test_neg, test_pos
