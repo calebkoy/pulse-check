@@ -29,6 +29,6 @@ if __name__ == "__main__":
   key = 'estimator'
   # print(type(scores[key][0]))
   estimator = scores[key][0]
-  with open('estimator.pkl', 'wb') as f:
+  with open('classifier.pkl', 'wb') as f:
     pickle.dump(estimator, f)
 

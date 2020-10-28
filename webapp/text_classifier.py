@@ -27,13 +27,10 @@ class NaiveBayesClassifier(ClassifierMixin, BaseEstimator):
         data[index] = processed_review
         
         split_review = processed_review.split()
+        self.class_total_word_counts_[c] += len(split_review)
         for word in split_review:
-          self.vocab_.add(word) 
-          
-        word_counts = Counter(split_review)
-        for word, count in word_counts.items():                    
-          self.class_total_word_counts_[c] += count
-          
+          self.vocab_.add(word)                                  
+                    
     self.tf_idf_matrices_ = {}
     vectorizer = TfidfVectorizer(vocabulary=self.vocab_)
     for c, data in self.grouped_data_.items():                                                
@@ -63,8 +60,7 @@ class NaiveBayesClassifier(ClassifierMixin, BaseEstimator):
     number_of_samples = len(self.X_)
     for c in self.classes_:            
       self.log_class_priors_[c] = math.log(len(self.grouped_data_[c]) / number_of_samples)        
-      
-    
+          
   def __compute_maximum_a_posteriori(self, review, vocab_size):
     max_posterior = -sys.maxsize
     most_likely_class = -sys.maxsize

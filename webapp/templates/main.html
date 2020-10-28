@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <title>Movie Checker</title>
+  </head>
+  <body>
+    <!-- TODO: consider how best to semantically structure the page -->
+    <!-- TODO: figure out if I need any validation - e.g., to prevent malicious or silly use -->    
+    <form action="{{ url_for('main') }}" method="POST">
+      <ul>
+        <li>
+          <label for="review">Review:</label>        
+          <input type="text" id="review" name="movie_review" required>
+        </li>
+        <li>
+          <button type="submit">Predict sentiment</button>
+        </li>
+      </ul>      
+    </form>
+    <p>
+      <!-- TODO: deal with case where there's no result -->
+      {% if result %}
+        Sentiment: {{ result }}
+      {% endif %}
+    </p>
+  </body>  
+</html>
