@@ -23,7 +23,7 @@ class NaiveBayesClassifier(ClassifierMixin, BaseEstimator):
     self.class_total_word_counts_ = defaultdict(int)
     for c, data in self.grouped_data_.items():                        
       for index, text in enumerate(data):                                
-        processed_text = self.processor.process(text)
+        processed_text = self.text_preprocessor.process(text)
         data[index] = processed_text
         
         split_text = processed_text.split()

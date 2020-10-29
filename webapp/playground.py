@@ -1,12 +1,14 @@
-import copy
-import json
+import pickle
 import re
 
 import emoji
-import nltk
+import numpy as np
+import pandas as pd
 import requests
 import twitter
 import yaml
+
+import text_classifier
 
 def process_yaml():
   with open("config.yaml") as file:
@@ -20,7 +22,7 @@ def make_request(bearer_token, url):
   response = requests.request("GET", url, headers=headers)
   return response.json()
 
-def get_tweets(topic, max_results):  
+def get_tweet_data(topic, max_results):  
   base_url = 'https://api.twitter.com/2/tweets/search/recent'  
   parameters = f'query={topic}&tweet.fields=created_at,lang&max_results={max_results}&expansions=referenced_tweets.id'
   endpoint_url = f'{base_url}?{parameters}'    
@@ -48,62 +50,71 @@ def process_tweets(response_json):
   retweeted_tweets = {}
 
   for tweet in response_json['data']:                        
+    if tweet['text'].startswith(retweet_abbreviation):
+      tweet['text'] = tweet['text'][2:]
+      if tweet['text'].endswith(ellipsis_unicode):                  
+        for tweet_reference in tweet['referenced_tweets']:
+          if tweet_reference['type'] == 'retweeted':
+            retweeted_tweet_id = tweet_reference['id']
+            break                              
+        if retweeted_tweet_id in retweeted_tweets:
+          full_tweet = retweeted_tweets[retweeted_tweet_id]
+        else:
+          for referenced_tweet in response_json['includes']['tweets']:
+            if referenced_tweet['id'] == retweeted_tweet_id:
+              full_tweet = referenced_tweet['text']
+              retweeted_tweets[retweeted_tweet_id] = full_tweet
+              break        
+        tweet['text'] = full_tweet      
     remove_html_character_entities(tweet)
     remove_urls(tweet)
     remove_emoji(tweet)
-    remove_at_mentions(tweet)
-    if (tweet['text'].endswith(ellipsis_unicode) 
-        and tweet['text'].startswith(retweet_abbreviation)):        
-      
-      for tweet_reference in tweet['referenced_tweets']:
-        if tweet_reference['type'] == 'retweeted':
-          retweeted_tweet_id = tweet_reference['id']
-          break                              
-      if retweeted_tweet_id in retweeted_tweets:
-        full_tweet = retweeted_tweets[retweeted_tweet_id]
-      else:
-        for referenced_tweet in response_json['includes']['tweets']:
-          if referenced_tweet['id'] == retweeted_tweet_id:
-            full_tweet = referenced_tweet['text']
-            retweeted_tweets[retweeted_tweet_id] = full_tweet
-            break        
-      tweet['full_text'] = full_tweet
-      tweet['text'] = tweet['text'][2:]
+    remove_at_mentions(tweet)    
 
-def main():                              
-  text = 'a a a the the the the other words'
-  freq_dist = nltk.FreqDist(text)
-  print(freq_dist.keys())
-  pass
-  # with open('response-11.json', 'r') as f:
-  #   response_json = json.load(f)
-  #   for tweet in response_json['data']:
-  #     tweet['text'] = re.sub(r'@\S+', '', tweet['text'])
-  #   with open('response-11-no-at-mentions.json', 'w', encoding='utf-8') as f2:
-  #     json.dump(response_json, f2, indent=2)
+def main():                                
+  max_results = 10 # CAREFUL!
+  topic = 'covid'
+  response_json = get_tweet_data(topic, max_results)      
+  if 'data' in response_json:
+    response_json['data'] = ([tweet for tweet in response_json['data'] 
+                              if tweet['lang'] == "en" 
+                              or tweet['lang'] == "en-gb"])
+  else:
+    # TODO: write this case
+    pass   
+  process_tweets(response_json) 
+  tweets = []
+  for tweet in response_json['data']:
+    tweets.append(tweet['text'])
+  print(f"Number of tweets: {len(tweets)}\n") # TODO: remove
+  for index, tweet in enumerate(tweets): # TODO: remove
+    print(f"Tweet: {index}\n{tweet}\n") # TODO: remove
+  with open('classifier.pkl', 'rb') as f:
+    classifier = pickle.load(f)
+  predictions = classifier.predict(pd.DataFrame(tweets).to_numpy())
+  print(f"Predictions: {predictions}")    # TODO: remove
 
-  
-  #pass
-  # max_results = 10 # CAREFUL!
-  # topic = 'covid'
-  # response_json = get_tweets(topic, max_results)    
-    
-  # if 'data' in response_json: 
-  #   response_json['data'] = ([tweet for tweet in response_json['data'] 
-  #                             if tweet['lang'] == "en" 
-  #                             or tweet['lang'] == "en-gb"])              
-  
-  # id = '11'
-  
-  # with open(f'response-{id}-ensure-ascii-false.json', 'w', encoding='utf-8') as f:
-  #   json.dump(response_json, f, ensure_ascii=False, indent=2)  
-  # with open(f'response-{id}.json', 'w', encoding='utf-8') as f:
-  #   json.dump(response_json, f, indent=2)  
-  
-  # process_tweets(response_json)            
+def test_modification_function(tweet):
+  tweet['text'] = re.sub(r'www\.\S+|https?://\S+', '', tweet['text'])
 
-  # with open(f'response-{id}-tweets-processed.json', 'w', encoding='utf-8') as f:
-  #   json.dump(response_json, f, indent=2)
+def process(my_dict):
+  print("Before processing:\n")
+  for tweet in my_dict['data']:
+    print(tweet["text"])
+    test_modification_function(tweet)
+    print(tweet["text"], '\n')
 
-if __name__ == "__main__":
+def test():
+  my_dict = {"data":[{"text": "My tweet! https://mytweet.com"}, 
+                     {"text": "My other tweet! https://myothertweet.com"}]}
+
+  print(my_dict)
+  process_tweets(my_dict)
+  print("After processing:\n")
+  for tweet in my_dict['data']:    
+    print(tweet["text"], '\n')
+  
+
+if __name__ == "__main__":  
+  #test()
   main()

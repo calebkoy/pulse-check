@@ -60,22 +60,22 @@ def process_tweets(response_json):
     remove_urls(tweet)
     remove_emoji(tweet)
     remove_at_mentions(tweet)
-    if (tweet['text'].endswith(ellipsis_unicode) 
-        and tweet['text'].startswith(retweet_abbreviation)):        
-      
-      for tweet_reference in tweet['referenced_tweets']:
-        if tweet_reference['type'] == 'retweeted':
-          retweeted_tweet_id = tweet_reference['id']
-          break                              
-      if retweeted_tweet_id in retweeted_tweets:
-        full_tweet = retweeted_tweets[retweeted_tweet_id]
-      else:
-        for referenced_tweet in response_json['includes']['tweets']:
-          if referenced_tweet['id'] == retweeted_tweet_id:
-            full_tweet = referenced_tweet['text']
-            retweeted_tweets[retweeted_tweet_id] = full_tweet
-            break        
-      tweet['text'] = full_tweet      
+    if tweet['text'].startswith(retweet_abbreviation):
+      tweet['text'] = tweet['text'][2:]
+      if tweet['text'].endswith(ellipsis_unicode):                  
+        for tweet_reference in tweet['referenced_tweets']:
+          if tweet_reference['type'] == 'retweeted':
+            retweeted_tweet_id = tweet_reference['id']
+            break                              
+        if retweeted_tweet_id in retweeted_tweets:
+          full_tweet = retweeted_tweets[retweeted_tweet_id]
+        else:
+          for referenced_tweet in response_json['includes']['tweets']:
+            if referenced_tweet['id'] == retweeted_tweet_id:
+              full_tweet = referenced_tweet['text']
+              retweeted_tweets[retweeted_tweet_id] = full_tweet
+              break        
+        tweet['text'] = full_tweet      
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -100,10 +100,8 @@ def main():
     tweets = []
     for tweet in response_json['data'] :
       tweets.append(tweet['text'])
-
     
-
-    with open('model/classifier.pkl', 'rb') as f:
+    with open('classifier.pkl', 'rb') as f:
       classifier = pickle.load(f)
 
     predictions = classifier.predict(tweets.to_numpy())
