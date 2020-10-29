@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 
-class ReviewProcessor:
+class TextPreprocessor:
   def remove_html_tags(self, text):
     return BeautifulSoup(text, features="html.parser").get_text()
   

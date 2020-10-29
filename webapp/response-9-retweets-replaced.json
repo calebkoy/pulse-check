@@ -1,0 +1,375 @@
+{
+  "data": [
+    {
+      "created_at": "2020-10-29T15:39:50.000Z",
+      "id": "1321839168419295234",
+      "lang": "en",
+      "text": "Just took a Covid test and my eyes are still watery."
+    },
+    {
+      "created_at": "2020-10-29T15:39:50.000Z",
+      "id": "1321839168159277057",
+      "lang": "en",
+      "text": "We have exploding case counts. Death rates will undoubtedly rise. Anyone claiming Covid is over is living in a parallel universe that bears no relation to the reality Americans are living.",
+      "entities": {
+        "annotations": [
+          {
+            "start": 100,
+            "end": 104,
+            "probability": 0.4961,
+            "type": "Person",
+            "normalized_text": "Covid"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 3,
+            "end": 16,
+            "username": "DrTomFrieden"
+          }
+        ]
+      },
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321489758447673344"
+        }
+      ]
+    },
+    {
+      "created_at": "2020-10-29T15:39:50.000Z",
+      "id": "1321839168146780160",
+      "lang": "en",
+      "text": "Desmond elliot wey be say Na only bucket of water he buy take use as hand sanitizer for him area during COVID wants to tell us how to use Social Media",
+      "entities": {
+        "annotations": [
+          {
+            "start": 16,
+            "end": 29,
+            "probability": 0.8997,
+            "type": "Person",
+            "normalized_text": "Desmond elliot"
+          },
+          {
+            "start": 42,
+            "end": 43,
+            "probability": 0.6918,
+            "type": "Person",
+            "normalized_text": "Na"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 3,
+            "end": 14,
+            "username": "ogujohnugo"
+          }
+        ]
+      },
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321783601030115328"
+        }
+      ]
+    },
+    {
+      "created_at": "2020-10-29T15:39:50.000Z",
+      "id": "1321839168008392704",
+      "lang": "en",
+      "text": "This needs to be seen far and wide. FOIA documents show that the IL Governor ignored \u201cthe science\u201d regarding his COVID-19 response/lockdowns and his decisions were made based on politics. IL citizens were scammed! @DLoesch @CamEdwards @realDonaldTrump \n\nhttps://t.co/4L5nBrlT9b",
+      "entities": {
+        "annotations": [
+          {
+            "start": 50,
+            "end": 53,
+            "probability": 0.6204,
+            "type": "Organization",
+            "normalized_text": "FOIA"
+          },
+          {
+            "start": 79,
+            "end": 89,
+            "probability": 0.5614,
+            "type": "Organization",
+            "normalized_text": "IL Governor"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 3,
+            "end": 12,
+            "username": "Non_Fudd"
+          }
+        ]
+      },
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321802573154787330"
+        }
+      ]
+    },
+    {
+      "created_at": "2020-10-29T15:39:50.000Z",
+      "id": "1321839167916011522",
+      "lang": "en",
+      "text": "That \"record\" GDP number? It's a mirage. \n\nHere's what the economy really looks like -- and why workers, families, communities and businesses still need a Covid-19 relief package (w/@nirkaissar): https://t.co/n1b0r9N8q0",
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 13,
+            "username": "TimOBrien"
+          }
+        ]
+      },
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321838349372563458"
+        }
+      ]
+    },
+    {
+      "created_at": "2020-10-29T15:39:50.000Z",
+      "id": "1321839167886811137",
+      "lang": "en",
+      "text": "RT @TimRunsHisMouth: I'm so excited for COVID to be over next Wednesday.",
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 19,
+            "username": "TimRunsHisMouth"
+          }
+        ]
+      },
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321677669625462789"
+        }
+      ]
+    },
+    {
+      "created_at": "2020-10-29T15:39:50.000Z",
+      "id": "1321839167857332224",
+      "lang": "en",
+      "text": "my friend in europe who doesn't wear a mask or social distance keeps catching covid \ud83d\ude43",
+      "entities": {
+        "annotations": [
+          {
+            "start": 13,
+            "end": 18,
+            "probability": 0.9079,
+            "type": "Place",
+            "normalized_text": "europe"
+          }
+        ]
+      }
+    }
+  ],
+  "includes": {
+    "tweets": [
+      {
+        "created_at": "2020-10-28T16:31:25.000Z",
+        "id": "1321489758447673344",
+        "lang": "en",
+        "text": "We have exploding case counts. Death rates will undoubtedly rise. Anyone claiming Covid is over is living in a parallel universe that bears no relation to the reality Americans are living."
+      },
+      {
+        "created_at": "2020-10-29T14:47:17.000Z",
+        "id": "1321825939819536390",
+        "lang": "ca",
+        "text": "\ud83d\udce2 Noves mesures especials de contenci\u00f3 de l\u2019activitat laboral i social per aturar la transmissi\u00f3 del virus de la COVID-19 \u2757\ufe0f\n\nEstem en plena segona onada i hem d\u2019aconseguir un punt d\u2019inflexi\u00f3 decidit i ferm per baixar les xifres de contagis \ud83d\udcc9\n\n\ud83d\udd17 https://t.co/ToPYRd3Q9n https://t.co/t7BQCyQBDD",
+        "entities": {
+          "urls": [
+            {
+              "start": 246,
+              "end": 269,
+              "url": "https://t.co/ToPYRd3Q9n",
+              "expanded_url": "https://bit.ly/3oGS9rU",
+              "display_url": "bit.ly/3oGS9rU",
+              "images": [
+                {
+                  "url": "https://pbs.twimg.com/news_img/1320447881212579840/v3WkfNQu?format=png&name=orig",
+                  "width": 201,
+                  "height": 201
+                },
+                {
+                  "url": "https://pbs.twimg.com/news_img/1320447881212579840/v3WkfNQu?format=png&name=150x150",
+                  "width": 150,
+                  "height": 150
+                }
+              ],
+              "status": 200,
+              "title": "Mesures aplicables a tot Catalunya",
+              "description": "La situ aci\u00f3 epidemiol\u00f2gica de Catalunya obliga a adoptar mesures especials de contenci\u00f3 de l\u2019activitat laboral i social i en mat\u00e8ria de salut p\u00fablica per aturar la transmissi\u00f3 del virus de la COVID-19 i protegir la salut de la poblaci\u00f3 del territori. Aquestes mesures entraran en vigor en la data de la publicaci\u00f3 al DOGC. L\u2019horari d\u2019obertura al p\u00fablic de les activitats de serveis i de comer\u00e7 detallista i de restauraci\u00f3, inclosa la prestaci\u00f3 de serveis a domicili, d\u2019espectacles p\u00fablics, recreatives i",
+              "unwound_url": "https://canalsalut.gencat.cat/ca/salut-a-z/c/coronavirus-2019-ncov/ciutadania/mesures-per-contenir-els-brots/mesures-per-contenir-els-brots-aplicables-a-tot-catalunya/?utm_source=twitter&utm_medium=social&utm_campaign="
+            },
+            {
+              "start": 270,
+              "end": 293,
+              "url": "https://t.co/t7BQCyQBDD",
+              "expanded_url": "https://twitter.com/salutcat/status/1321825939819536390/photo/1",
+              "display_url": "pic.twitter.com/t7BQCyQBDD"
+            }
+          ]
+        }
+      },
+      {
+        "created_at": "2020-10-29T11:59:02.000Z",
+        "id": "1321783601030115328",
+        "lang": "en",
+        "text": "Desmond elliot wey be say Na only bucket of water he buy take use as hand sanitizer for him area during COVID wants to tell us how to use Social Media",
+        "entities": {
+          "annotations": [
+            {
+              "start": 0,
+              "end": 13,
+              "probability": 0.9407,
+              "type": "Person",
+              "normalized_text": "Desmond elliot"
+            },
+            {
+              "start": 104,
+              "end": 108,
+              "probability": 0.4188,
+              "type": "Organization",
+              "normalized_text": "COVID"
+            }
+          ]
+        }
+      },
+      {
+        "created_at": "2020-10-29T13:04:39.000Z",
+        "id": "1321800111844896773",
+        "lang": "es",
+        "text": "Seg\u00fan la leyenda, a S\u00edsifo se le impuso el castigo de empujar una piedra hasta la cima de una monta\u00f1a para verla rodar hacia abajo, por lo que ten\u00eda que reiniciar el proceso.\nAs\u00ed estamos con el covid y sus rebrotes.\nSin embargo, de esta saldremos. https://t.co/mOVpu0Bc1b",
+        "entities": {
+          "urls": [
+            {
+              "start": 248,
+              "end": 271,
+              "url": "https://t.co/mOVpu0Bc1b",
+              "expanded_url": "https://twitter.com/fisgonmonero/status/1321800111844896773/photo/1",
+              "display_url": "pic.twitter.com/mOVpu0Bc1b"
+            }
+          ],
+          "annotations": [
+            {
+              "start": 20,
+              "end": 25,
+              "probability": 0.7119,
+              "type": "Person",
+              "normalized_text": "S\u00edsifo"
+            }
+          ]
+        }
+      },
+      {
+        "created_at": "2020-10-29T13:14:26.000Z",
+        "id": "1321802573154787330",
+        "lang": "en",
+        "text": "This needs to be seen far and wide. FOIA documents show that the IL Governor ignored \u201cthe science\u201d regarding his COVID-19 response/lockdowns and his decisions were made based on politics. IL citizens were scammed! @DLoesch @CamEdwards @realDonaldTrump \n\nhttps://t.co/4L5nBrlT9b",
+        "entities": {
+          "urls": [
+            {
+              "start": 254,
+              "end": 277,
+              "url": "https://t.co/4L5nBrlT9b",
+              "expanded_url": "https://patch.com/illinois/palos/s/haliz/emails-secret-reports-show-politics-science-guiding-pritzker?utm_source=twitter.com&utm_medium=social&utm_term=politics+%26+government&utm_campaign=autopost&utm_content=palos",
+              "display_url": "patch.com/illinois/palos\u2026",
+              "images": [
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321618844272775175/_B7hKhVG?format=jpg&name=orig",
+                  "width": 1067,
+                  "height": 800
+                },
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321618844272775175/_B7hKhVG?format=jpg&name=150x150",
+                  "width": 150,
+                  "height": 150
+                }
+              ],
+              "status": 200,
+              "title": "Emails, Secret Report Show Politics Of Science Guiding Pritzker",
+              "description": "KONKOL COLUMN: A look behind the statistics used by Pritzker to decide virus restrictions shows that better science got disregarded.",
+              "unwound_url": "https://patch.com/illinois/palos/s/haliz/emails-secret-reports-show-politics-science-guiding-pritzker?utm_source=twitter.com&utm_medium=social&utm_term=politics+%26+government&utm_campaign=autopost&utm_content=palos"
+            }
+          ],
+          "annotations": [
+            {
+              "start": 36,
+              "end": 39,
+              "probability": 0.6208,
+              "type": "Organization",
+              "normalized_text": "FOIA"
+            },
+            {
+              "start": 65,
+              "end": 75,
+              "probability": 0.5686,
+              "type": "Organization",
+              "normalized_text": "IL Governor"
+            }
+          ],
+          "mentions": [
+            {
+              "start": 214,
+              "end": 222,
+              "username": "DLoesch"
+            },
+            {
+              "start": 223,
+              "end": 234,
+              "username": "CamEdwards"
+            },
+            {
+              "start": 235,
+              "end": 251,
+              "username": "realDonaldTrump"
+            }
+          ]
+        }
+      },
+      {
+        "created_at": "2020-10-29T15:36:35.000Z",
+        "id": "1321838349372563458",
+        "lang": "en",
+        "text": "That \"record\" GDP number? It's a mirage. \n\nHere's what the economy really looks like -- and why workers, families, communities and businesses still need a Covid-19 relief package (w/@nirkaissar): https://t.co/n1b0r9N8q0",
+        "entities": {
+          "urls": [
+            {
+              "start": 196,
+              "end": 219,
+              "url": "https://t.co/n1b0r9N8q0",
+              "expanded_url": "https://www.bloomberg.com/opinion/articles/2020-10-29/the-record-economic-boom-is-a-mirage?sref=zQ8DuwIB",
+              "display_url": "bloomberg.com/opinion/articl\u2026"
+            }
+          ],
+          "mentions": [
+            {
+              "start": 182,
+              "end": 193,
+              "username": "nirkaissar"
+            }
+          ]
+        }
+      },
+      {
+        "created_at": "2020-10-29T04:58:06.000Z",
+        "id": "1321677669625462789",
+        "lang": "en",
+        "text": "I'm so excited for COVID to be over next Wednesday."
+      }
+    ]
+  },
+  "meta": {
+    "newest_id": "1321839168419295234",
+    "oldest_id": "1321839167857332224",
+    "result_count": 10,
+    "next_token": "b26v89c19zqg8o3fosbskfz7ikm6fjvvnqcb1rwwyvpfh"
+  }
+}

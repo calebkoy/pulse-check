@@ -1,0 +1,519 @@
+{
+  "data": [
+    {
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321763310790987777"
+        }
+      ],
+      "entities": {
+        "hashtags": [
+          {
+            "start": 17,
+            "end": 27,
+            "tag": "Venezuela"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 3,
+            "end": 15,
+            "username": "TAMARA_SUJU"
+          }
+        ]
+      },
+      "id": "1321822529573384195",
+      "lang": "es",
+      "text": "RT @TAMARA_SUJU: #Venezuela. Profesionales de la Salud lanzan un SOS a todos los venezolanos y comunidad Internacional.  No tienen ning\u00fan m\u2026",
+      "created_at": "2020-10-29T14:33:43.000Z"
+    },
+    {
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321806498759147520"
+        }
+      ],
+      "id": "1321822528617238531",
+      "lang": "en",
+      "text": "RT @IsabelOakeshott: Businessman @simondolan is taking the government to court over the lockdown. Key court hearing today. And guess what?\u2026",
+      "created_at": "2020-10-29T14:33:43.000Z",
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 19,
+            "username": "IsabelOakeshott"
+          },
+          {
+            "start": 33,
+            "end": 44,
+            "username": "simondolan"
+          }
+        ]
+      }
+    },
+    {
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321821591869648898"
+        }
+      ],
+      "entities": {
+        "hashtags": [
+          {
+            "start": 30,
+            "end": 38,
+            "tag": "Covid19"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 3,
+            "end": 17,
+            "username": "Helmholtz_HZI"
+          }
+        ]
+      },
+      "id": "1321822528457871361",
+      "lang": "de",
+      "text": "RT @Helmholtz_HZI: Nach einer #Covid19-Erkrankung weisen einige Patienten Merkmale einer Autoimmunerkrankung wie Lupus &amp; Rheuma auf, berich\u2026",
+      "created_at": "2020-10-29T14:33:43.000Z"
+    },
+    {
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321795083553935360"
+        }
+      ],
+      "id": "1321822528415789056",
+      "lang": "en",
+      "entities": {
+        "annotations": [
+          {
+            "start": 31,
+            "end": 34,
+            "probability": 0.9252,
+            "type": "Place",
+            "normalized_text": "U.S."
+          }
+        ],
+        "mentions": [
+          {
+            "start": 3,
+            "end": 19,
+            "username": "jsolomonReports"
+          }
+        ]
+      },
+      "text": "RT @jsolomonReports: Breaking: U.S. GDP grew at record 33.1% annualized rate in third quarter as economy roared back to life from COVID.  |\u2026",
+      "created_at": "2020-10-29T14:33:43.000Z"
+    },
+    {
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321820584716701696"
+        }
+      ],
+      "id": "1321822528172560384",
+      "lang": "en",
+      "entities": {
+        "annotations": [
+          {
+            "start": 27,
+            "end": 32,
+            "probability": 0.9863,
+            "type": "Place",
+            "normalized_text": "Taiwan"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 3,
+            "end": 14,
+            "username": "ianbremmer"
+          }
+        ]
+      },
+      "text": "RT @ianbremmer: Meanwhile, Taiwan has now gone 200 days without any domestically transmitted cases of covid. \n(Yes, it\u2019s a small island. Bu\u2026",
+      "created_at": "2020-10-29T14:33:43.000Z"
+    },
+    {
+      "id": "1321822528155824129",
+      "lang": "en",
+      "text": "PSA don\u2019t go to the Chicopee @Starbucks because there have been MULTIPLE covid cases and corporate refuses to allow them to close or improve their safety regulations \ud83d\udc4d\ud83c\udffb",
+      "created_at": "2020-10-29T14:33:43.000Z",
+      "entities": {
+        "mentions": [
+          {
+            "start": 29,
+            "end": 39,
+            "username": "Starbucks"
+          }
+        ]
+      }
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 266,
+            "end": 289,
+            "url": "https://t.co/R9f65K0xzI",
+            "expanded_url": "https://twitter.com/ChuckDeBroder/status/1321822527518318593/video/1",
+            "display_url": "pic.twitter.com/R9f65K0xzI"
+          }
+        ],
+        "hashtags": [
+          {
+            "start": 240,
+            "end": 265,
+            "tag": "WEREALLYCAREABOUTWEATHER"
+          }
+        ]
+      },
+      "id": "1321822527518318593",
+      "lang": "en",
+      "text": "Seasonal viral diseases are still active, the strong winds that can occur in the region this day can more easily spread any virus. Please follow the health recommendations issued by your local authorities to control the COVID-19 pandemic. \n#WEREALLYCAREABOUTWEATHER https://t.co/R9f65K0xzI",
+      "created_at": "2020-10-29T14:33:43.000Z"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 51,
+            "end": 74,
+            "url": "https://t.co/kA4z4OIxt1",
+            "expanded_url": "https://twitter.com/skay105/status/1321822527296032768/photo/1",
+            "display_url": "pic.twitter.com/kA4z4OIxt1"
+          }
+        ]
+      },
+      "id": "1321822527296032768",
+      "lang": "es",
+      "text": "Porque hay personas que cojen el covid y otras no? https://t.co/kA4z4OIxt1",
+      "created_at": "2020-10-29T14:33:43.000Z"
+    },
+    {
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321822420915793921"
+        }
+      ],
+      "entities": {
+        "urls": [
+          {
+            "start": 96,
+            "end": 119,
+            "url": "https://t.co/0aErXUu8dP",
+            "expanded_url": "https://mjbizdaily.com/nevada-marijuana-market-on-upswing-after-strict-covid-19-restrictions-fewer-tourists/",
+            "display_url": "mjbizdaily.com/nevada-marijua\u2026",
+            "images": [
+              {
+                "url": "https://pbs.twimg.com/news_img/1321762281991118849/LSK5mb1r?format=png&name=orig",
+                "width": 900,
+                "height": 600
+              },
+              {
+                "url": "https://pbs.twimg.com/news_img/1321762281991118849/LSK5mb1r?format=png&name=150x150",
+                "width": 150,
+                "height": 150
+              }
+            ],
+            "status": 200,
+            "title": "Nevada marijuana market on upswing after strict COVID-19 limits, fewer tourists",
+            "description": "Nevada\\'s recreational marijuana sales have largely recovered after slumping from strict coronavirus shutdown measures, dwindling tourists.",
+            "unwound_url": "https://mjbizdaily.com/nevada-marijuana-market-on-upswing-after-strict-covid-19-restrictions-fewer-tourists/"
+          }
+        ],
+        "annotations": [
+          {
+            "start": 16,
+            "end": 21,
+            "probability": 0.9683,
+            "type": "Place",
+            "normalized_text": "Nevada"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 3,
+            "end": 14,
+            "username": "tsegerblom"
+          }
+        ]
+      },
+      "id": "1321822527186903040",
+      "lang": "en",
+      "text": "RT @tsegerblom: Nevada marijuana market on upswing after strict COVID-19 limits, fewer tourists https://t.co/0aErXUu8dP",
+      "created_at": "2020-10-29T14:33:43.000Z"
+    },
+    {
+      "entities": {
+        "urls": [
+          {
+            "start": 157,
+            "end": 180,
+            "url": "https://t.co/v9WMqlG6Ae",
+            "expanded_url": "http://ansabrasil.com.br/brasil/noticias/vaticano/noticias/2020/10/29/por-covid-celebracoes-do-papa-voltarao-a-ser-sem-publico_33eb6c2d-e882-48fd-8c8e-b85063939f17.html",
+            "display_url": "ansabrasil.com.br/brasil/noticia\u2026",
+            "images": [
+              {
+                "url": "https://pbs.twimg.com/news_img/1321822528860508160/beEJXszj?format=jpg&name=orig",
+                "width": 600,
+                "height": 400
+              },
+              {
+                "url": "https://pbs.twimg.com/news_img/1321822528860508160/beEJXszj?format=jpg&name=150x150",
+                "width": 150,
+                "height": 150
+              }
+            ],
+            "status": 200,
+            "title": "Por Covid, celebra\u00e7\u00f5es do Papa voltar\u00e3o a ser sem p\u00fablico - Vaticano",
+            "description": "Por Covid, celebra\u00e7\u00f5es do Papa voltar\u00e3o a ser sem p\u00fablico, Medida ser\u00e1 v\u00e1lida a partir de 4 de novembro, O Vaticano informou que, a partir do dia 4 de novembro, as audi\u00eancias e celebra\u00e7\u00f5es do papa Francisco voltar\u00e3o a ser transmitidas por streaming e sem a presen\u00e7a de fi\u00e9is. , Noticias",
+            "unwound_url": "http://ansabrasil.com.br/brasil/noticias/vaticano/noticias/2020/10/29/por-covid-celebracoes-do-papa-voltarao-a-ser-sem-publico_33eb6c2d-e882-48fd-8c8e-b85063939f17.html"
+          }
+        ],
+        "annotations": [
+          {
+            "start": 68,
+            "end": 76,
+            "probability": 0.5875,
+            "type": "Place",
+            "normalized_text": "Francisco"
+          }
+        ]
+      },
+      "id": "1321822526998257665",
+      "lang": "pt",
+      "text": "A partir do dia 4 de novembro, todas as audi\u00eancias e celebra\u00e7\u00f5es de Francisco ser\u00e3o transmitidas por streaming - assim como ocorreu entre mar\u00e7o e setembro.\n\nhttps://t.co/v9WMqlG6Ae",
+      "created_at": "2020-10-29T14:33:43.000Z"
+    }
+  ],
+  "includes": {
+    "tweets": [
+      {
+        "entities": {
+          "urls": [
+            {
+              "start": 225,
+              "end": 248,
+              "url": "https://t.co/RTL7ZEPxGo",
+              "expanded_url": "https://twitter.com/TAMARA_SUJU/status/1321763310790987777/video/1",
+              "display_url": "pic.twitter.com/RTL7ZEPxGo"
+            }
+          ],
+          "hashtags": [
+            {
+              "start": 0,
+              "end": 10,
+              "tag": "Venezuela"
+            }
+          ]
+        },
+        "id": "1321763310790987777",
+        "lang": "es",
+        "text": "#Venezuela. Profesionales de la Salud lanzan un SOS a todos los venezolanos y comunidad Internacional.  No tienen ning\u00fan material de protecci\u00f3n para el Covid 19, por lo que sus vidas est\u00e1n en peligro y trabajan con las u\u00f1as. https://t.co/RTL7ZEPxGo",
+        "created_at": "2020-10-29T10:38:25.000Z"
+      },
+      {
+        "id": "1321806498759147520",
+        "lang": "en",
+        "entities": {
+          "annotations": [
+            {
+              "start": 140,
+              "end": 146,
+              "probability": 0.5765,
+              "type": "Product",
+              "normalized_text": "Twitter"
+            }
+          ],
+          "mentions": [
+            {
+              "start": 12,
+              "end": 23,
+              "username": "simondolan"
+            }
+          ]
+        },
+        "text": "Businessman @simondolan is taking the government to court over the lockdown. Key court hearing today. And guess what? He's been banned from Twitter for 12 hours for \"spreading misleading/potentially harmful information\" about covid. You could not make this shit up",
+        "created_at": "2020-10-29T13:30:01.000Z"
+      },
+      {
+        "entities": {
+          "urls": [
+            {
+              "start": 256,
+              "end": 279,
+              "url": "https://t.co/HwJfXDCQrB",
+              "expanded_url": "https://www.nytimes.com/2020/10/27/health/covid-antibodies-autoimmunity.html",
+              "display_url": "nytimes.com/2020/10/27/hea\u2026",
+              "images": [
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321147769009176582/sCkcLvGi?format=jpg&name=orig",
+                  "width": 3000,
+                  "height": 1687
+                },
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321147769009176582/sCkcLvGi?format=jpg&name=150x150",
+                  "width": 150,
+                  "height": 150
+                }
+              ],
+              "status": 200,
+              "title": "Some Covid Survivors Have Antibodies That Attack the Body, not Virus",
+              "description": "New research found \u2018autoantibodies\u2019 similar to those in lupus and rheumatoid arthritis patients. But patients may also benefit from treatments for those autoimmune diseases.",
+              "unwound_url": "https://www.nytimes.com/2020/10/27/health/covid-antibodies-autoimmunity.html"
+            }
+          ],
+          "hashtags": [
+            {
+              "start": 11,
+              "end": 19,
+              "tag": "Covid19"
+            }
+          ],
+          "mentions": [
+            {
+              "start": 140,
+              "end": 156,
+              "username": "EmoryUniversity"
+            },
+            {
+              "start": 246,
+              "end": 254,
+              "username": "nytimes"
+            }
+          ]
+        },
+        "id": "1321821591869648898",
+        "lang": "de",
+        "text": "Nach einer #Covid19-Erkrankung weisen einige Patienten Merkmale einer Autoimmunerkrankung wie Lupus &amp; Rheuma auf, berichten Immunologen @EmoryUniversity. Es ist noch offen, ob Autoimmun-Therapien auch Covid-Langzeitfolgen lindern k\u00f6nnen. Via @nytimes. https://t.co/HwJfXDCQrB",
+        "created_at": "2020-10-29T14:30:00.000Z"
+      },
+      {
+        "entities": {
+          "urls": [
+            {
+              "start": 133,
+              "end": 156,
+              "url": "https://t.co/MJ8p16Xtt9",
+              "expanded_url": "https://justthenews.com/nation/economy/us-gdp-grew-331-third-quarter-according-new-report",
+              "display_url": "justthenews.com/nation/economy\u2026",
+              "images": [
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321795090487103488/DdFrjGCw?format=jpg&name=orig",
+                  "width": 1200,
+                  "height": 628
+                },
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321795090487103488/DdFrjGCw?format=jpg&name=150x150",
+                  "width": 150,
+                  "height": 150
+                }
+              ],
+              "status": 200,
+              "title": "U.S. GDP grew at 33.1% annualized rate in third quarter, feds report",
+              "description": "The GDP has now recovered about 2/3rds of what was initially lost in the coronavirus-induced recession",
+              "unwound_url": "https://justthenews.com/nation/economy/us-gdp-grew-331-third-quarter-according-new-report"
+            }
+          ],
+          "annotations": [
+            {
+              "start": 10,
+              "end": 13,
+              "probability": 0.9244,
+              "type": "Place",
+              "normalized_text": "U.S."
+            }
+          ]
+        },
+        "id": "1321795083553935360",
+        "lang": "en",
+        "text": "Breaking: U.S. GDP grew at record 33.1% annualized rate in third quarter as economy roared back to life from COVID.  | Just The News https://t.co/MJ8p16Xtt9",
+        "created_at": "2020-10-29T12:44:40.000Z"
+      },
+      {
+        "entities": {
+          "urls": [
+            {
+              "start": 156,
+              "end": 179,
+              "url": "https://t.co/5XXsVzUOwp",
+              "expanded_url": "https://twitter.com/ianbremmer/status/1321820584716701696/photo/1",
+              "display_url": "pic.twitter.com/5XXsVzUOwp"
+            }
+          ],
+          "annotations": [
+            {
+              "start": 11,
+              "end": 16,
+              "probability": 0.979,
+              "type": "Place",
+              "normalized_text": "Taiwan"
+            }
+          ]
+        },
+        "id": "1321820584716701696",
+        "lang": "en",
+        "text": "Meanwhile, Taiwan has now gone 200 days without any domestically transmitted cases of covid. \n(Yes, it\u2019s a small island. But effective management matters). https://t.co/5XXsVzUOwp",
+        "created_at": "2020-10-29T14:26:00.000Z"
+      },
+      {
+        "entities": {
+          "urls": [
+            {
+              "start": 80,
+              "end": 103,
+              "url": "https://t.co/0aErXUu8dP",
+              "expanded_url": "https://mjbizdaily.com/nevada-marijuana-market-on-upswing-after-strict-covid-19-restrictions-fewer-tourists/",
+              "display_url": "mjbizdaily.com/nevada-marijua\u2026",
+              "images": [
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321762281991118849/LSK5mb1r?format=png&name=orig",
+                  "width": 900,
+                  "height": 600
+                },
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321762281991118849/LSK5mb1r?format=png&name=150x150",
+                  "width": 150,
+                  "height": 150
+                }
+              ],
+              "status": 200,
+              "title": "Nevada marijuana market on upswing after strict COVID-19 limits, fewer tourists",
+              "description": "Nevada\\'s recreational marijuana sales have largely recovered after slumping from strict coronavirus shutdown measures, dwindling tourists.",
+              "unwound_url": "https://mjbizdaily.com/nevada-marijuana-market-on-upswing-after-strict-covid-19-restrictions-fewer-tourists/"
+            }
+          ],
+          "annotations": [
+            {
+              "start": 0,
+              "end": 5,
+              "probability": 0.9475,
+              "type": "Place",
+              "normalized_text": "Nevada"
+            }
+          ]
+        },
+        "id": "1321822420915793921",
+        "lang": "en",
+        "text": "Nevada marijuana market on upswing after strict COVID-19 limits, fewer tourists https://t.co/0aErXUu8dP",
+        "created_at": "2020-10-29T14:33:18.000Z"
+      }
+    ]
+  },
+  "meta": {
+    "newest_id": "1321822529573384195",
+    "oldest_id": "1321822526998257665",
+    "result_count": 10,
+    "next_token": "b26v89c19zqg8o3fosbskfywfjqekcvh2srwdqwhjyxkt"
+  }
+}
