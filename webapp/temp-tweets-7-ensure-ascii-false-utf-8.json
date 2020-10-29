@@ -1,0 +1,617 @@
+{
+  "data": [
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 19,
+            "username": "TimRunsHisMouth"
+          }
+        ]
+      },
+      "text": "RT @TimRunsHisMouth: I'm so excited for COVID to be over next Wednesday.",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801008616509449",
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321677669625462789"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 18,
+            "username": "Banquemondiale"
+          }
+        ]
+      },
+      "text": "RT @Banquemondiale: Le commerce transfrontalier coûte cher et prend du temps au Moyen-Orient et en Afrique Nord: il faut en moyenne 442 dol…",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801008176111617",
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1320621301770395649"
+        }
+      ],
+      "lang": "fr"
+    },
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 18,
+            "username": "RealEricCarmen"
+          }
+        ],
+        "annotations": [
+          {
+            "start": 32,
+            "end": 34,
+            "probability": 0.3938,
+            "type": "Organization",
+            "normalized_text": "CDC"
+          }
+        ]
+      },
+      "text": "RT @RealEricCarmen: Update from CDC\nOf the 220,000 deaths reported as due to COVID, the actual cause was:\n88,208 - pneumonia &amp; influenza \n1…",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801008159313922",
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321344132007165953"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 16,
+            "username": "kirstiealley"
+          }
+        ],
+        "annotations": [
+          {
+            "start": 77,
+            "end": 81,
+            "probability": 0.5822,
+            "type": "Person",
+            "normalized_text": "Covid"
+          }
+        ]
+      },
+      "text": "RT @kirstiealley: I realized that my “inner circle” was just as apt to bring Covid into my house as some stranger. As long as we are at gro…",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801007966334977",
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321735742352171009"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 12,
+            "username": "tribelaw"
+          }
+        ],
+        "annotations": [
+          {
+            "start": 27,
+            "end": 31,
+            "probability": 0.9984,
+            "type": "Person",
+            "normalized_text": "Trump"
+          },
+          {
+            "start": 60,
+            "end": 65,
+            "probability": 0.9979,
+            "type": "Place",
+            "normalized_text": "EUROPE"
+          }
+        ]
+      },
+      "text": "RT @tribelaw: We can’t let Trump use the COVID-19 spikes in EUROPE to wash his hands of responsibility for how bad the virus has become in…",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801007945404416",
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321789357288837129"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 19,
+            "username": "SteveSchmidtSES"
+          },
+          {
+            "start": 22,
+            "end": 38,
+            "username": "realDonaldTrump"
+          }
+        ],
+        "annotations": [
+          {
+            "start": 39,
+            "end": 44,
+            "probability": 0.997,
+            "type": "Person",
+            "normalized_text": "Donald"
+          },
+          {
+            "start": 68,
+            "end": 72,
+            "probability": 0.5995,
+            "type": "Person",
+            "normalized_text": "Covid"
+          }
+        ]
+      },
+      "text": "RT @SteveSchmidtSES: .@realDonaldTrump Donald, do not be jealous of Covid’s ratings. It can’t spread without you. You are a team. Can I tel…",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801007698006016",
+      "referenced_tweets": [
+        {
+          "type": "quoted",
+          "id": "1321638682395398149"
+        },
+        {
+          "type": "retweeted",
+          "id": "1321657974251790336"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 14,
+            "username": "ogujohnugo"
+          }
+        ],
+        "annotations": [
+          {
+            "start": 16,
+            "end": 29,
+            "probability": 0.8997,
+            "type": "Person",
+            "normalized_text": "Desmond elliot"
+          },
+          {
+            "start": 42,
+            "end": 43,
+            "probability": 0.6918,
+            "type": "Person",
+            "normalized_text": "Na"
+          }
+        ]
+      },
+      "text": "RT @ogujohnugo: Desmond elliot wey be say Na only bucket of water he buy take use as hand sanitizer for him area during COVID wants to tell…",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801007655956480",
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321783601030115328"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "entities": {
+        "hashtags": [
+          {
+            "start": 190,
+            "end": 196,
+            "tag": "COVID"
+          },
+          {
+            "start": 197,
+            "end": 215,
+            "tag": "EstadoDeAlarmaESp"
+          },
+          {
+            "start": 216,
+            "end": 223,
+            "tag": "Espana"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 0,
+            "end": 5,
+            "username": "PSOE"
+          },
+          {
+            "start": 6,
+            "end": 16,
+            "username": "populares"
+          }
+        ],
+        "urls": [
+          {
+            "start": 224,
+            "end": 247,
+            "url": "https://t.co/h882zdoYwQ",
+            "expanded_url": "https://twitter.com/pere_antoni_v/status/1321801007622488064/photo/1",
+            "display_url": "pic.twitter.com/h882zdoYwQ"
+          }
+        ]
+      },
+      "text": "@PSOE @populares A ver, que si veis que os puede ayudar en algo y vais justos, por eso de ir a fiestas y tal, yo os lo presto. Todo sea por que dejéis de meter la pata de una puñeteras vez. #COVID #EstadoDeAlarmaESp #Espana https://t.co/h882zdoYwQ",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801007622488064",
+      "lang": "es"
+    },
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 19,
+            "username": "SravastiDasgup2"
+          }
+        ],
+        "annotations": [
+          {
+            "start": 48,
+            "end": 51,
+            "probability": 0.9433,
+            "type": "Person",
+            "normalized_text": "Modi"
+          },
+          {
+            "start": 126,
+            "end": 127,
+            "probability": 0.9283,
+            "type": "Place",
+            "normalized_text": "US"
+          }
+        ]
+      },
+      "text": "RT @SravastiDasgup2: 75% Indians surveyed think Modi handled Covid well. On the other hand only 34% of people surveyed in the US, 36% in Sp…",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801007605649409",
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321753350946267136"
+        }
+      ],
+      "lang": "en"
+    },
+    {
+      "entities": {
+        "mentions": [
+          {
+            "start": 3,
+            "end": 15,
+            "username": "cris_cersei"
+          }
+        ]
+      },
+      "text": "RT @cris_cersei: Molinari in aula ha appena delegittimato tutta la controinformazione sul Covid fatta sui social, ci ha dato apertamente de…",
+      "created_at": "2020-10-29T13:08:12.000Z",
+      "id": "1321801007521824769",
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "1321748047160889345"
+        }
+      ],
+      "lang": "it"
+    }
+  ],
+  "includes": {
+    "tweets": [
+      {
+        "text": "I'm so excited for COVID to be over next Wednesday.",
+        "created_at": "2020-10-29T04:58:06.000Z",
+        "id": "1321677669625462789",
+        "lang": "en"
+      },
+      {
+        "entities": {
+          "hashtags": [
+            {
+              "start": 174,
+              "end": 186,
+              "tag": "exportation"
+            }
+          ],
+          "urls": [
+            {
+              "start": 188,
+              "end": 211,
+              "url": "https://t.co/uC6pZvFZlJ",
+              "expanded_url": "http://wrld.bg/Yyin50C0O8F",
+              "display_url": "wrld.bg/Yyin50C0O8F",
+              "images": [
+                {
+                  "url": "https://pbs.twimg.com/news_img/1318583120011153410/Joyt6XHK?format=jpg&name=orig",
+                  "width": 780,
+                  "height": 439
+                },
+                {
+                  "url": "https://pbs.twimg.com/news_img/1318583120011153410/Joyt6XHK?format=jpg&name=150x150",
+                  "width": 150,
+                  "height": 150
+                }
+              ],
+              "status": 200,
+              "title": "MENARégion MENA : Le commerce et l’intégration régionale sont essentiels au redressement de l’économie après la COVID: Trade and Regional Integration are Critical to Economic Recovery in the Post-Covid Era",
+              "description": "Alors que la croissance économique atteint des abîmes, la balance des transactions courantes et le solde budgétaire se détériorent, et on prévoit une augmentation considérable de la dette publique.",
+              "unwound_url": "https://www.banquemondiale.org/fr/news/press-release/2020/10/19/mena-trade-and-regional-integration-are-critical-to-economic-recovery-in-the-post-covid-era?cid=ecr_tt_worldbank_fr_ext"
+            }
+          ]
+        },
+        "text": "Le commerce transfrontalier coûte cher et prend du temps au Moyen-Orient et en Afrique Nord: il faut en moyenne 442 dollars et 53 heures pour se conformer aux formalités à l’#exportation. https://t.co/uC6pZvFZlJ",
+        "created_at": "2020-10-26T07:00:28.000Z",
+        "id": "1320621301770395649",
+        "lang": "fr"
+      },
+      {
+        "text": "Update from CDC\nOf the 220,000 deaths reported as due to COVID, the actual cause was:\n88,208 - pneumonia &amp; influenza \n17, 799 - chronic respiratory disease \n26, 365 - respiratory distress synd.\n44, 261 - hypertensive disease \n23, 275 -heart disease \n28, 000 -cardiac arrest",
+        "created_at": "2020-10-28T06:52:45.000Z",
+        "id": "1321344132007165953",
+        "lang": "en"
+      },
+      {
+        "text": "I realized that my “inner circle” was just as apt to bring Covid into my house as some stranger. As long as we are at grocery stores and near other humans who are living life SOMEWHERE there is a risk. My 97 year old dad hasn’t been able to hug us for 8 months. Is that living?",
+        "created_at": "2020-10-29T08:48:52.000Z",
+        "id": "1321735742352171009",
+        "lang": "en",
+        "entities": {
+          "annotations": [
+            {
+              "start": 59,
+              "end": 63,
+              "probability": 0.3726,
+              "type": "Person",
+              "normalized_text": "Covid"
+            }
+          ]
+        }
+      },
+      {
+        "text": "We can’t let Trump use the COVID-19 spikes in EUROPE to wash his hands of responsibility for how bad the virus has become in the US: the relevant comparison is CANADA, where the rates of disease and death are way, way lower than here.",
+        "created_at": "2020-10-29T12:21:55.000Z",
+        "id": "1321789357288837129",
+        "lang": "en",
+        "entities": {
+          "annotations": [
+            {
+              "start": 13,
+              "end": 17,
+              "probability": 0.9982,
+              "type": "Person",
+              "normalized_text": "Trump"
+            },
+            {
+              "start": 46,
+              "end": 51,
+              "probability": 0.9982,
+              "type": "Place",
+              "normalized_text": "EUROPE"
+            },
+            {
+              "start": 129,
+              "end": 130,
+              "probability": 0.96,
+              "type": "Place",
+              "normalized_text": "US"
+            },
+            {
+              "start": 160,
+              "end": 165,
+              "probability": 0.9952,
+              "type": "Place",
+              "normalized_text": "CANADA"
+            }
+          ]
+        }
+      },
+      {
+        "entities": {
+          "mentions": [
+            {
+              "start": 1,
+              "end": 17,
+              "username": "realDonaldTrump"
+            }
+          ],
+          "urls": [
+            {
+              "start": 280,
+              "end": 303,
+              "url": "https://t.co/0svtYtSScx",
+              "expanded_url": "https://twitter.com/projectlincoln/status/1321638682395398149",
+              "display_url": "twitter.com/projectlincoln…"
+            }
+          ],
+          "annotations": [
+            {
+              "start": 18,
+              "end": 23,
+              "probability": 0.998,
+              "type": "Person",
+              "normalized_text": "Donald"
+            },
+            {
+              "start": 47,
+              "end": 51,
+              "probability": 0.5802,
+              "type": "Person",
+              "normalized_text": "Covid"
+            }
+          ]
+        },
+        "text": ".@realDonaldTrump Donald, do not be jealous of Covid’s ratings. It can’t spread without you. You are a team. Can I tell you a secret?  Your rallies aren’t working. People don’t like them. Everywhere you go the vast majority of people see you and a cult of fools endangering their https://t.co/0svtYtSScx",
+        "created_at": "2020-10-29T03:39:50.000Z",
+        "id": "1321657974251790336",
+        "referenced_tweets": [
+          {
+            "type": "quoted",
+            "id": "1321638682395398149"
+          }
+        ],
+        "lang": "en"
+      },
+      {
+        "text": "Desmond elliot wey be say Na only bucket of water he buy take use as hand sanitizer for him area during COVID wants to tell us how to use Social Media",
+        "created_at": "2020-10-29T11:59:02.000Z",
+        "id": "1321783601030115328",
+        "lang": "en",
+        "entities": {
+          "annotations": [
+            {
+              "start": 0,
+              "end": 13,
+              "probability": 0.9407,
+              "type": "Person",
+              "normalized_text": "Desmond elliot"
+            },
+            {
+              "start": 104,
+              "end": 108,
+              "probability": 0.4188,
+              "type": "Organization",
+              "normalized_text": "COVID"
+            }
+          ]
+        }
+      },
+      {
+        "entities": {
+          "mentions": [
+            {
+              "start": 265,
+              "end": 279,
+              "username": "ThePrintIndia"
+            }
+          ],
+          "urls": [
+            {
+              "start": 228,
+              "end": 251,
+              "url": "https://t.co/tgJ41zK8j5",
+              "expanded_url": "https://theprint.in/india/indians-believe-modi-handled-covid-well-other-nations-face-widespread-disapproval-survey/533131/",
+              "display_url": "theprint.in/india/indians-…",
+              "images": [
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321743584702439426/RZ5wogAn?format=jpg&name=orig",
+                  "width": 1200,
+                  "height": 675
+                },
+                {
+                  "url": "https://pbs.twimg.com/news_img/1321743584702439426/RZ5wogAn?format=jpg&name=150x150",
+                  "width": 150,
+                  "height": 150
+                }
+              ],
+              "status": 200,
+              "title": "Indians believe Modi handled Covid well, other nations face widespread disapproval — survey",
+              "description": "In a survey of 26,000 people across 25 nations, respondents say global spread of Covid could have been prevented if China had reacted quicker.",
+              "unwound_url": "https://theprint.in/india/indians-believe-modi-handled-covid-well-other-nations-face-widespread-disapproval-survey/533131/"
+            }
+          ],
+          "annotations": [
+            {
+              "start": 27,
+              "end": 30,
+              "probability": 0.919,
+              "type": "Person",
+              "normalized_text": "Modi"
+            },
+            {
+              "start": 105,
+              "end": 106,
+              "probability": 0.9902,
+              "type": "Place",
+              "normalized_text": "US"
+            },
+            {
+              "start": 116,
+              "end": 120,
+              "probability": 0.9983,
+              "type": "Place",
+              "normalized_text": "Spain"
+            },
+            {
+              "start": 130,
+              "end": 135,
+              "probability": 0.993,
+              "type": "Place",
+              "normalized_text": "France"
+            },
+            {
+              "start": 152,
+              "end": 153,
+              "probability": 0.9823,
+              "type": "Place",
+              "normalized_text": "UK"
+            },
+            {
+              "start": 159,
+              "end": 164,
+              "probability": 0.9952,
+              "type": "Place",
+              "normalized_text": "Brazil"
+            }
+          ]
+        },
+        "text": "75% Indians surveyed think Modi handled Covid well. On the other hand only 34% of people surveyed in the US, 36% in Spain, 37% in France and 39% in the UK and Brazil thought their govts had performed well— global survey reveals https://t.co/tgJ41zK8j5 I report via @ThePrintIndia",
+        "created_at": "2020-10-29T09:58:50.000Z",
+        "id": "1321753350946267136",
+        "lang": "en"
+      },
+      {
+        "text": "Molinari in aula ha appena delegittimato tutta la controinformazione sul Covid fatta sui social, ci ha dato apertamente degli idioti. E tutto ciò solo per lo scopo stile asilo di attaccare i grillini.\nChest'è. 😖",
+        "created_at": "2020-10-29T09:37:45.000Z",
+        "id": "1321748047160889345",
+        "lang": "it"
+      }
+    ]
+  },
+  "errors": [
+    {
+      "detail": "Could not find tweet with referenced_tweets.id: [1321638682395398149].",
+      "title": "Not Found Error",
+      "resource_type": "tweet",
+      "parameter": "referenced_tweets.id",
+      "value": "1321638682395398149",
+      "type": "https://api.twitter.com/2/problems/resource-not-found"
+    }
+  ],
+  "meta": {
+    "newest_id": "1321801008616509449",
+    "oldest_id": "1321801007521824769",
+    "result_count": 10,
+    "next_token": "b26v89c19zqg8o3fosbskfyat5ajc3n9mywadq5tbtdod"
+  }
+}
