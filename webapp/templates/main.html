@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>    
-    <title>Movie Checker</title>
+    <title>Pulse Check</title>
   </head>
   <body>
     <!-- TODO: consider how best to semantically structure the page -->
@@ -17,11 +17,34 @@
         </li>
       </ul>      
     </form>
-    <p>
-      <!-- TODO: deal with case where there's no result -->
-      {% if result %}
-        Sentiment: {{ result }}
-      {% endif %}
-    </p>
+    <!-- TODO: deal with case where there's no result -->      
+    {% if sentiment_percentages %}
+      <h2>Predicted sentiment for topic: {{ original_topic }}</h2>
+      <h3>Total number of tweets analysed: {{ total_tweets }}</h3> <!-- Q: should this be h3? -->
+      <p>                
+        Positive: {{ sentiment_percentages["positive"] }}%
+        {% for id in tweet_ids["positive"] %}
+        <li>          
+            <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+        </li>
+        {% endfor %}
+      </p>                
+      <p>
+        Neutral: {{ sentiment_percentages["neutral"] }}%
+        {% for id in tweet_ids["neutral"] %}
+        <li>          
+            <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+        </li>
+        {% endfor %}
+      </p>
+      <p>
+        Negative: {{ sentiment_percentages["negative"] }}%
+        {% for id in tweet_ids["negative"] %}
+        <li>          
+            <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+        </li>
+        {% endfor %}
+      </p>
+    {% endif %}
   </body>  
 </html>

@@ -9,6 +9,7 @@ import twitter
 import yaml
 
 import text_classifier
+from sentiment import Sentiment
 
 def process_yaml():
   with open("config.yaml") as file:
@@ -41,14 +42,11 @@ def remove_emoji(tweet):
 def remove_at_mentions(tweet):
   tweet['text'] = re.sub(r'@\S+', '', tweet['text'])
 
-def process_tweets(response_json):
-  # TODO: Consider wrapping the necessary code in a try, 
-  # in case the data that is returned is not as expected and you get an exception    
-    
+def process_tweets(response_json):      
   ellipsis_unicode = '\u2026'     
   retweet_abbreviation = 'RT'
+  quote_tweet_abbreviation = 'QT'
   retweeted_tweets = {}
-
   for tweet in response_json['data']:                        
     if tweet['text'].startswith(retweet_abbreviation):
       tweet['text'] = tweet['text'][2:]
@@ -58,14 +56,16 @@ def process_tweets(response_json):
             retweeted_tweet_id = tweet_reference['id']
             break                              
         if retweeted_tweet_id in retweeted_tweets:
-          full_tweet = retweeted_tweets[retweeted_tweet_id]
-        else:
+          tweet['text'] = retweeted_tweets[retweeted_tweet_id]
+        elif 'includes' in response_json:
           for referenced_tweet in response_json['includes']['tweets']:
             if referenced_tweet['id'] == retweeted_tweet_id:
               full_tweet = referenced_tweet['text']
               retweeted_tweets[retweeted_tweet_id] = full_tweet
-              break        
-        tweet['text'] = full_tweet      
+              tweet['text'] = full_tweet
+              break                      
+    if tweet['text'].startswith(quote_tweet_abbreviation):
+      tweet['text'] = tweet['text'][2:]
     remove_html_character_entities(tweet)
     remove_urls(tweet)
     remove_emoji(tweet)
@@ -73,48 +73,45 @@ def process_tweets(response_json):
 
 def main():                                
   max_results = 10 # CAREFUL!
-  topic = 'covid'
+  topic = 'naive 10'
   response_json = get_tweet_data(topic, max_results)      
+  print(response_json)
   if 'data' in response_json:
     response_json['data'] = ([tweet for tweet in response_json['data'] 
                               if tweet['lang'] == "en" 
                               or tweet['lang'] == "en-gb"])
+    
+    process_tweets(response_json) 
+    tweets = []
+    tweet_ids = []
+    for tweet in response_json['data']:
+      tweets.append(tweet['text'])    
+      tweet_ids.append(tweet['id'])
+    for tweet in tweets:
+      print(tweet)
+    tweet_ids = np.array(tweet_ids)
+    with open('classifier.pkl', 'rb') as f:
+      classifier = pickle.load(f)
+    predictions = classifier.predict(pd.DataFrame(tweets).to_numpy())
+    print(f"Predictions: {predictions}\n")    # TODO: remove  
+    
+    positive_indices = np.asarray(predictions == Sentiment.POSITIVE.value).nonzero()
+    neutral_indices = np.asarray(predictions == Sentiment.NEUTRAL.value).nonzero()
+    negative_indices = np.asarray(predictions == Sentiment.NEGATIVE.value).nonzero()
+    positive_tweet_ids = tweet_ids[positive_indices]
+    neutral_tweet_ids = tweet_ids[neutral_indices]
+    negative_tweet_ids = tweet_ids[negative_indices]
+    print(f"Positive tweet indices:\n{positive_indices}\n")
+    print(f"Positive tweet IDs:\n{positive_tweet_ids}\n\n")
+    print(f"Neutral tweet indices:\n{neutral_indices}\n")
+    print(f"Neutral tweet IDs:\n{neutral_tweet_ids}\n\n")
+    print(f"Negative tweet indices:\n{negative_indices}\n")
+    print(f"Negative tweet IDs:\n{negative_tweet_ids}\n\n")
   else:
     # TODO: write this case
-    pass   
-  process_tweets(response_json) 
-  tweets = []
-  for tweet in response_json['data']:
-    tweets.append(tweet['text'])
-  print(f"Number of tweets: {len(tweets)}\n") # TODO: remove
-  for index, tweet in enumerate(tweets): # TODO: remove
-    print(f"Tweet: {index}\n{tweet}\n") # TODO: remove
-  with open('classifier.pkl', 'rb') as f:
-    classifier = pickle.load(f)
-  predictions = classifier.predict(pd.DataFrame(tweets).to_numpy())
-  print(f"Predictions: {predictions}")    # TODO: remove
+    # Consider checking for any error, interpreting them if possible 
+    # and returning a helpful message to the user
+    pass       
 
-def test_modification_function(tweet):
-  tweet['text'] = re.sub(r'www\.\S+|https?://\S+', '', tweet['text'])
-
-def process(my_dict):
-  print("Before processing:\n")
-  for tweet in my_dict['data']:
-    print(tweet["text"])
-    test_modification_function(tweet)
-    print(tweet["text"], '\n')
-
-def test():
-  my_dict = {"data":[{"text": "My tweet! https://mytweet.com"}, 
-                     {"text": "My other tweet! https://myothertweet.com"}]}
-
-  print(my_dict)
-  process_tweets(my_dict)
-  print("After processing:\n")
-  for tweet in my_dict['data']:    
-    print(tweet["text"], '\n')
-  
-
-if __name__ == "__main__":  
-  #test()
+if __name__ == "__main__":    
   main()
