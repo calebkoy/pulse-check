@@ -8,7 +8,6 @@ import requests
 import twitter
 import yaml
 
-import text_classifier
 from sentiment import Sentiment
 
 def process_yaml():
