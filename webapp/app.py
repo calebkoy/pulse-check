@@ -104,27 +104,10 @@ def main():
   if flask.request.method == 'GET':
     return flask.render_template('main.html')
 
-  if flask.request.method == 'POST':    
-    # TODO: strongly consider doing some processing on the topic
-    # to prevent making a request if the topic is a nonsense string. 
-    # 1. Probably just enforce only numbers and English letters as part of 
-    # the text on the client side and then check this on the backend too.
-    # I can extend later.
-    # 2. Think about all the possible types of characters that could be allowed
-    # in a valid query in the English language: 0-1a-zA-Z; all punctuation 
-    # characters on the keyboard; what types of ascii, utf(8 only?), unicode
-    # or other characters will you allow? Will you need to escape any of 
-    # the characters or do some other processing before making the request?
-    # How do others, including Twitter, deal with this?
-    
+  if flask.request.method == 'POST':            
     max_results = 10 # TODO: change to 100 for live app        
-    topic = flask.request.form['topic']
-    response_json = get_tweet_data(topic, max_results)
-    
-    # Test what happens when a topic that has no tweets (for the specified time period) is used in the request.
-    # and update the code below accordingly.
-    # You might need to check if the response has an error(s) key.
-        
+    topic = flask.request.form['topic'].strip()
+    response_json = get_tweet_data(topic, max_results)                
     if 'data' in response_json: 
       response_json['data'] = ([tweet for tweet in response_json['data'] 
                                 if tweet['lang'] == "en" 
@@ -132,10 +115,11 @@ def main():
     
       process_tweets(response_json) 
       tweets = []
-      tweet_ids = []
-      for tweet in response_json['data'] :
-        tweets.append(tweet['text'])   
-        tweet_ids.append(tweet['id'])       
+      tweet_ids = []      
+      for tweet in response_json['data']:
+        if tweet['text'] not in tweets:          
+          tweets.append(tweet['text'])   
+          tweet_ids.append(tweet['id'])       
       with open('test_grid_search_NB_clf_sentiment140.pkl', 'rb') as f:
         classifier = pickle.load(f)
       predictions = classifier.predict(tweets)
@@ -150,8 +134,8 @@ def main():
                                     tweet_base_url=tweet_base_url,
                                     total_tweets=len(tweets)) 
     else:
-      #TODO: write this case; how to notify the FE?
-      pass        
+      return flask.render_template('main.html',
+                                   no_show=True)        
 
 if __name__ == '__main__':
   app.run()

@@ -5,12 +5,27 @@
   </head>
   <body>
     <!-- TODO: consider how best to semantically structure the page -->
-    <!-- TODO: figure out if I need any validation - e.g., to prevent malicious or silly use -->    
-    <form action="{{ url_for('main') }}" method="POST">
+    <h1>Pulse Check</h1>
+    <p>
+      Enter and submit a topic in the input field below. Pulse Check will 
+      predict the sentiment of the most recent tweets related to that topic, 
+      up to a maximum of 100 tweets.
+    </p>
+    <p>
+      Currently, Pulse Check only supports English tweets. Input any topic, 
+      using only numbers and letters from the English alphabet.
+    </p>
+    <form action="{{ url_for('main') }}" method="POST" 
+autocomplete="off">
       <ul>
         <li>
           <label for="topic_field">Topic:</label>        
-          <input type="text" id="topic_field" name="topic" required>
+          <input type="text" 
+                 id="topic_field" 
+                 name="topic" 
+                 maxlength=512
+                 pattern="\s*[0-9a-zA-Z][0-9a-zA-Z\s]*" 
+                 required>
         </li>
         <li>
           <button type="submit">Predict sentiment</button>
@@ -36,6 +51,10 @@
             <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
         </li>
         {% endfor %}
+      </p>
+    {% elif no_show %}
+      <p>
+        No tweets can be analysed at this time. Please try again later.
       </p>
     {% endif %}
   </body>  
