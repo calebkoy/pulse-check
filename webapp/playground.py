@@ -72,7 +72,7 @@ def process_tweets(response_json):
 
 def main():                                
   max_results = 10 # CAREFUL!
-  topic = 'naive 10'
+  topic = '"'
   response_json = get_tweet_data(topic, max_results)      
   print(response_json)
   if 'data' in response_json:
@@ -89,23 +89,23 @@ def main():
     for tweet in tweets:
       print(tweet)
     tweet_ids = np.array(tweet_ids)
-    with open('classifier.pkl', 'rb') as f:
-      classifier = pickle.load(f)
-    predictions = classifier.predict(pd.DataFrame(tweets).to_numpy())
-    print(f"Predictions: {predictions}\n")    # TODO: remove  
+    # with open('classifier.pkl', 'rb') as f:
+    #   classifier = pickle.load(f)
+    # predictions = classifier.predict(pd.DataFrame(tweets).to_numpy())
+    # print(f"Predictions: {predictions}\n")    # TODO: remove  
     
-    positive_indices = np.asarray(predictions == Sentiment.POSITIVE.value).nonzero()
+    # positive_indices = np.asarray(predictions == Sentiment.POSITIVE.value).nonzero()
     #neutral_indices = np.asarray(predictions == Sentiment.NEUTRAL.value).nonzero()
-    negative_indices = np.asarray(predictions == Sentiment.NEGATIVE.value).nonzero()
-    positive_tweet_ids = tweet_ids[positive_indices]
+    # negative_indices = np.asarray(predictions == Sentiment.NEGATIVE.value).nonzero()
+    # positive_tweet_ids = tweet_ids[positive_indices]
     #neutral_tweet_ids = tweet_ids[neutral_indices]
-    negative_tweet_ids = tweet_ids[negative_indices]
-    print(f"Positive tweet indices:\n{positive_indices}\n")
-    print(f"Positive tweet IDs:\n{positive_tweet_ids}\n\n")
+    # negative_tweet_ids = tweet_ids[negative_indices]
+    # print(f"Positive tweet indices:\n{positive_indices}\n")
+    # print(f"Positive tweet IDs:\n{positive_tweet_ids}\n\n")
     #print(f"Neutral tweet indices:\n{neutral_indices}\n")
     #print(f"Neutral tweet IDs:\n{neutral_tweet_ids}\n\n")
-    print(f"Negative tweet indices:\n{negative_indices}\n")
-    print(f"Negative tweet IDs:\n{negative_tweet_ids}\n\n")
+    # print(f"Negative tweet indices:\n{negative_indices}\n")
+    # print(f"Negative tweet IDs:\n{negative_tweet_ids}\n\n")
   else:
     # TODO: write this case
     # Consider checking for any error, interpreting them if possible 
