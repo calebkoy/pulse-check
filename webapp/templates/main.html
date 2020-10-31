@@ -28,15 +28,7 @@
             <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
         </li>
         {% endfor %}
-      </p>                
-      <p>
-        Neutral: {{ sentiment_percentages["neutral"] }}%
-        {% for id in tweet_ids["neutral"] %}
-        <li>          
-            <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
-        </li>
-        {% endfor %}
-      </p>
+      </p>                      
       <p>
         Negative: {{ sentiment_percentages["negative"] }}%
         {% for id in tweet_ids["negative"] %}

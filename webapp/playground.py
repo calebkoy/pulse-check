@@ -66,10 +66,10 @@ def process_tweets(response_json):
               break                      
     if tweet['text'].startswith(quote_tweet_abbreviation):
       tweet['text'] = tweet['text'][2:]
-    remove_html_character_entities(tweet)
     remove_urls(tweet)
+    remove_html_character_entities(tweet)    
     remove_emoji(tweet)
-    remove_at_mentions(tweet)    
+    remove_at_mentions(tweet)
 
 def main():                                
   max_results = 10 # CAREFUL!
@@ -96,15 +96,15 @@ def main():
     print(f"Predictions: {predictions}\n")    # TODO: remove  
     
     positive_indices = np.asarray(predictions == Sentiment.POSITIVE.value).nonzero()
-    neutral_indices = np.asarray(predictions == Sentiment.NEUTRAL.value).nonzero()
+    #neutral_indices = np.asarray(predictions == Sentiment.NEUTRAL.value).nonzero()
     negative_indices = np.asarray(predictions == Sentiment.NEGATIVE.value).nonzero()
     positive_tweet_ids = tweet_ids[positive_indices]
-    neutral_tweet_ids = tweet_ids[neutral_indices]
+    #neutral_tweet_ids = tweet_ids[neutral_indices]
     negative_tweet_ids = tweet_ids[negative_indices]
     print(f"Positive tweet indices:\n{positive_indices}\n")
     print(f"Positive tweet IDs:\n{positive_tweet_ids}\n\n")
-    print(f"Neutral tweet indices:\n{neutral_indices}\n")
-    print(f"Neutral tweet IDs:\n{neutral_tweet_ids}\n\n")
+    #print(f"Neutral tweet indices:\n{neutral_indices}\n")
+    #print(f"Neutral tweet IDs:\n{neutral_tweet_ids}\n\n")
     print(f"Negative tweet indices:\n{negative_indices}\n")
     print(f"Negative tweet IDs:\n{negative_tweet_ids}\n\n")
   else:

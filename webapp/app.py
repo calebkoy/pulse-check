@@ -45,56 +45,58 @@ def remove_emoji(tweet):
 def remove_at_mentions(tweet):
   tweet['text'] = re.sub(r'@\S+', '', tweet['text'])
 
-def remove_retweet_abbreviation(tweet):
-  tweet['text'] = re.sub(r'', '', tweet['text'])
+def remove_non_alpha_or_space_characters(tweet):        
+  tweet['text'] = re.sub(r'[^a-zA-Z\s]', '', tweet['text'])
+
+def remove_short_words(tweet):
+  tweet['text'] = re.sub(r'\b\w{1,2}\b', '', tweet['text'])
 
 def process_tweets(response_json):
   ellipsis_unicode = '\u2026'     
-  retweet_abbreviation = 'RT'
-  quote_tweet_abbreviation = 'QT'
+  retweet_abbreviation = 'RT'  
   retweeted_tweets = {}
   for tweet in response_json['data']:                        
-    if tweet['text'].startswith(retweet_abbreviation):
-      tweet['text'] = tweet['text'][2:]
-      if tweet['text'].endswith(ellipsis_unicode):                  
-        for tweet_reference in tweet['referenced_tweets']:
-          if tweet_reference['type'] == 'retweeted':
-            retweeted_tweet_id = tweet_reference['id']
-            break                              
-        if retweeted_tweet_id in retweeted_tweets:
-          tweet['text'] = retweeted_tweets[retweeted_tweet_id]
-        elif 'includes' in response_json:
-          for referenced_tweet in response_json['includes']['tweets']:
-            if referenced_tweet['id'] == retweeted_tweet_id:
-              full_tweet = referenced_tweet['text']
-              retweeted_tweets[retweeted_tweet_id] = full_tweet
-              tweet['text'] = full_tweet
-              break                      
-    if tweet['text'].startswith(quote_tweet_abbreviation):
-      tweet['text'] = tweet['text'][2:]
-    remove_html_character_entities(tweet)
+    if (tweet['text'].startswith(retweet_abbreviation) and 
+        tweet['text'].endswith(ellipsis_unicode)):            
+      
+      for tweet_reference in tweet['referenced_tweets']:
+        if tweet_reference['type'] == 'retweeted':
+          retweeted_tweet_id = tweet_reference['id']
+          break                              
+      if retweeted_tweet_id in retweeted_tweets:
+        tweet['text'] = retweeted_tweets[retweeted_tweet_id]
+      elif 'includes' in response_json:
+        for referenced_tweet in response_json['includes']['tweets']:
+          if referenced_tweet['id'] == retweeted_tweet_id:
+            full_tweet = referenced_tweet['text']
+            retweeted_tweets[retweeted_tweet_id] = full_tweet
+            tweet['text'] = full_tweet
+            break                          
     remove_urls(tweet)
+    remove_html_character_entities(tweet)    
     remove_emoji(tweet)
-    remove_at_mentions(tweet)
+    remove_at_mentions(tweet)    
+    remove_non_alpha_or_space_characters(tweet)
+    remove_short_words(tweet)
 
 def compute_sentiment_percentages(predictions):
   total_predictions = len(predictions)      
-  percent_positive = sum((predictions == 2).astype(int)) / total_predictions
-  percent_neutral = sum((predictions == 1).astype(int)) / total_predictions
-  percent_negative = sum((predictions == 0).astype(int)) / total_predictions
-  return {"positive": round(percent_positive * 100, 1),
-          "neutral": round(percent_neutral * 100, 1),
+  percent_positive = (sum((predictions == Sentiment.POSITIVE.value).astype(int)) / 
+                      total_predictions)
+  #percent_neutral = sum((predictions == 1).astype(int)) / total_predictions
+  percent_negative = (sum((predictions == Sentiment.NEGATIVE.value).astype(int)) / 
+                      total_predictions)
+  return {"positive": round(percent_positive * 100, 1),          
           "negative": round(percent_negative * 100, 1)}
 
 def get_tweet_ids_by_sentiment(predictions, tweet_ids):
   positive_indices = np.asarray(predictions == Sentiment.POSITIVE.value).nonzero()
-  neutral_indices = np.asarray(predictions == Sentiment.NEUTRAL.value).nonzero()
+  #neutral_indices = np.asarray(predictions == Sentiment.NEUTRAL.value).nonzero()
   negative_indices = np.asarray(predictions == Sentiment.NEGATIVE.value).nonzero()
   positive_tweet_ids = tweet_ids[positive_indices]
-  neutral_tweet_ids = tweet_ids[neutral_indices]
+  #neutral_tweet_ids = tweet_ids[neutral_indices]
   negative_tweet_ids = tweet_ids[negative_indices]
-  return {"positive": positive_tweet_ids,
-          "neutral": neutral_tweet_ids,
+  return {"positive": positive_tweet_ids,          
           "negative": negative_tweet_ids}
 
 @app.route('/', methods=['GET', 'POST'])
@@ -134,10 +136,13 @@ def main():
       for tweet in response_json['data'] :
         tweets.append(tweet['text'])   
         tweet_ids.append(tweet['id']) 
-      tweet_ids = np.array(tweet_ids)
-      with open('classifier.pkl', 'rb') as f:
+      tweet_ids = np.array(tweet_ids)      
+      # with open('classifier.pkl', 'rb') as f:
+      #   classifier = pickle.load(f)
+      with open('test_grid_search_NB_sentiment140.pkl', 'rb') as f:
         classifier = pickle.load(f)
-      predictions = classifier.predict(pd.DataFrame(tweets).to_numpy())
+      #predictions = classifier.predict(pd.DataFrame(tweets).to_numpy())
+      predictions = classifier.predict(tweets)
       sentiment_percentages = compute_sentiment_percentages(predictions)
       tweet_ids_by_sentiment = get_tweet_ids_by_sentiment(predictions, tweet_ids)
       tweet_base_url = "https://twitter.com/i/web/status"
