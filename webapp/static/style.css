@@ -1,0 +1,56 @@
+/*================*/
+/* General styles */
+/*================*/
+
+html {
+  box-sizing: border-box; /* Alternative box model */
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px; /* Makes calculations of other font sizes easier */     
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* Inherit alternative box model */
+}
+
+body {
+  margin: 0 auto;    
+}
+
+h1 {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 5em;  
+}
+
+h2 {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 3em;
+}
+
+p {
+  font-size: 1.7em;  
+  line-height: 1.6;
+}
+
+footer {
+  font-size: 1.5em;
+  padding-top: 2.5em;  
+  padding-bottom: 0.5em;    
+  color: #7575a3;  
+  text-align: center;  
+}
+
+/*=================*/
+/* Home page style */
+/*=================*/
+
+.home-page {
+  max-width: 720px;
+  text-align: center;  
+}
+
+main {    
+  margin: 0 auto;
+  max-width: 80em;
+}

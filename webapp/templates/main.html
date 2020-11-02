@@ -1,61 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Caleb O.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">    
+    
     <title>Pulse Check</title>
   </head>
-  <body>
+  <body class="home-page">
     <!-- TODO: consider how best to semantically structure the page -->
-    <h1>Pulse Check</h1>
-    <p>
-      Enter and submit a topic in the input field below. Pulse Check will 
-      predict the sentiment of the most recent tweets related to that topic, 
-      up to a maximum of 100 tweets.
-    </p>
-    <p>
-      Currently, Pulse Check only supports English tweets. Input any topic, 
-      using only numbers and letters from the English alphabet.
-    </p>
-    <form action="{{ url_for('main') }}" method="POST" 
-autocomplete="off">
-      <ul>
-        <li>
-          <label for="topic_field">Topic:</label>        
-          <input type="text" 
-                 id="topic_field" 
-                 name="topic" 
-                 maxlength=512
-                 pattern="\s*[0-9a-zA-Z][0-9a-zA-Z\s]*" 
-                 required>
-        </li>
-        <li>
-          <button type="submit">Predict sentiment</button>
-        </li>
-      </ul>      
-    </form>
-    <!-- TODO: deal with case where there's no result -->      
-    {% if sentiment_percentages %}
-      <h2>Predicted sentiment for topic: {{ original_topic }}</h2>
-      <h3>Total number of tweets analysed: {{ total_tweets }}</h3> <!-- Q: should this be h3? -->
-      <p>                
-        Positive: {{ sentiment_percentages["positive"] }}%
-        {% for id in tweet_ids["positive"] %}
-        <li>          
-            <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
-        </li>
-        {% endfor %}
-      </p>                      
+    <header>
+      <h1>Pulse Check</h1>
+    </header>
+    <main>
       <p>
-        Negative: {{ sentiment_percentages["negative"] }}%
-        {% for id in tweet_ids["negative"] %}
-        <li>          
-            <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
-        </li>
-        {% endfor %}
+        Enter and submit a topic in the input field below. Pulse Check will 
+        predict the sentiment of the most recent tweets related to that topic, 
+        up to a maximum of 100 tweets.
       </p>
-    {% elif no_show %}
       <p>
-        No tweets can be analysed at this time. Please try again later.
+        Currently, Pulse Check only supports English tweets. Input any topic without 
+        leading or trailing whitespace and 
+        using only numbers and letters from the English alphabet.
       </p>
-    {% endif %}
+      <form action="{{ url_for('main') }}" 
+            method="GET" 
+            autocomplete="off">
+        <ul>
+          <li>
+            <label for="topic_field">Topic:</label>                  
+            <input type="text" 
+                   id="topic_field" 
+                   name="topic" 
+                   maxlength=512
+                   pattern="^[0-9a-zA-Z]+(\s*[0-9a-zA-Z]+)*$"                  
+                   spellcheck="false"
+                   required>
+          </li>
+          <li>
+            <button type="submit">Predict sentiment</button>
+          </li>
+        </ul>      
+      </form>
+      {% if sentiment_percentages %}
+        <h2>Predicted sentiment for topic: {{ original_topic }}</h2>
+        <h3>Total number of tweets analysed: {{ total_tweets }}</h3> <!-- Q: should this be h3? -->
+        <p>                
+          Positive: {{ sentiment_percentages["positive"] }}%
+          {% for id in tweet_ids["positive"] %}
+          <li>          
+              <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+          </li>
+          {% endfor %}
+        </p>                      
+        <p>
+          Negative: {{ sentiment_percentages["negative"] }}%
+          {% for id in tweet_ids["negative"] %}
+          <li>          
+              <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+          </li>
+          {% endfor %}
+        </p>
+      {% elif no_show %}
+        <p>
+          No tweets can be analysed at this time. Please try again later.
+        </p>
+      {% endif %}
+    </main>    
+    <footer>
+      Crafted by <a href="https://github.com/calebowusu">Caleb O.</a> - &copy; 2020
+    </footer>
   </body>  
 </html>

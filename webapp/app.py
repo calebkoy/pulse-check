@@ -4,7 +4,6 @@ import re
 import emoji
 import flask
 import numpy as np
-import pandas as pd
 import requests
 import twitter
 import yaml
@@ -99,20 +98,22 @@ def get_tweet_ids_by_sentiment(predictions, tweet_ids):
   return {"positive": positive_tweet_ids,          
           "negative": negative_tweet_ids}
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def main():
-  if flask.request.method == 'GET':
-    return flask.render_template('main.html')
-
-  if flask.request.method == 'POST':            
-    max_results = 10 # TODO: change to 100 for live app        
-    topic = flask.request.form['topic'].strip()
+  if not 'topic' in flask.request.args:
+    return flask.render_template('main.html')    
+  else:
+    max_results = 10 # TODO: change to 100 for live app            
+    topic = flask.request.args['topic'].strip()
+    topic = re.sub(r'[^a-zA-Z\s]', '', topic)
     response_json = get_tweet_data(topic, max_results)                
     if 'data' in response_json: 
       response_json['data'] = ([tweet for tweet in response_json['data'] 
                                 if tweet['lang'] == "en" 
                                 or tweet['lang'] == "en-gb"])            
     
+      if (not response_json['data']):
+        return flask.render_template('main.html', no_show=True)
       process_tweets(response_json) 
       tweets = []
       tweet_ids = []      
@@ -120,7 +121,7 @@ def main():
         if tweet['text'] not in tweets:          
           tweets.append(tweet['text'])   
           tweet_ids.append(tweet['id'])       
-      with open('test_grid_search_NB_clf_sentiment140.pkl', 'rb') as f:
+      with open('grid_search_NB_clf_sentiment140.pkl', 'rb') as f:
         classifier = pickle.load(f)
       predictions = classifier.predict(tweets)
       sentiment_percentages = compute_sentiment_percentages(predictions)
@@ -134,8 +135,7 @@ def main():
                                     tweet_base_url=tweet_base_url,
                                     total_tweets=len(tweets)) 
     else:
-      return flask.render_template('main.html',
-                                   no_show=True)        
+      return flask.render_template('main.html', no_show=True)
 
 if __name__ == '__main__':
   app.run()
