@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Caleb O.">
+    <meta name="description" content="Pulse Check is a tool that analyses the sentiment 
+                                      of tweets based on a given topic, using a Naive 
+                                      Bayes Classifier, a machine learning model often used 
+                                      for text classification and other natural language 
+                                      processing tasks.">
     
     <link href="https://fonts.googleapis.com/css2?family=Commissioner&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">    
     
     <title>Pulse Check</title>
   </head>
-  <body class="home-page">
+  <body>
     <!-- TODO: consider how best to semantically structure the page -->
     <header>
       <h1>Pulse Check</h1>
@@ -20,7 +25,7 @@
       <p>
         Enter and submit a topic in the input field below. Pulse Check will 
         predict the sentiment of the most recent tweets related to that topic, 
-        up to a maximum of 100 tweets.
+        up to a maximum of 20 tweets.
       </p>
       <p>
         Currently, Pulse Check only supports English tweets. Input any topic without 
@@ -48,22 +53,26 @@
       </form>
       {% if sentiment_percentages %}
         <h2>Predicted sentiment for topic: {{ original_topic }}</h2>
-        <h3>Total number of tweets analysed: {{ total_tweets }}</h3> <!-- Q: should this be h3? -->
+        <p>Total number of tweets analysed: {{ total_tweets }}</p> 
         <p>                
           Positive: {{ sentiment_percentages["positive"] }}%
-          {% for id in tweet_ids["positive"] %}
-          <li>          
-              <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
-          </li>
-          {% endfor %}
+          <ol>
+            {% for id in tweet_ids["positive"] %}
+            <li>          
+                <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+            </li>
+            {% endfor %}
+          </ol>          
         </p>                      
         <p>
           Negative: {{ sentiment_percentages["negative"] }}%
-          {% for id in tweet_ids["negative"] %}
-          <li>          
-              <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
-          </li>
-          {% endfor %}
+          <ol>
+            {% for id in tweet_ids["negative"] %}
+            <li>          
+                <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+            </li>
+            {% endfor %}
+          </ol>          
         </p>
       {% elif no_show %}
         <p>

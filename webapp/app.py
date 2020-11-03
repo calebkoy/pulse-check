@@ -98,12 +98,16 @@ def get_tweet_ids_by_sentiment(predictions, tweet_ids):
   return {"positive": positive_tweet_ids,          
           "negative": negative_tweet_ids}
 
+@app.errorhandler(404)
+def page_not_found(e):
+  return flask.render_template('404.html'), 404
+
 @app.route('/')
 def main():
   if not 'topic' in flask.request.args:
     return flask.render_template('main.html')    
   else:
-    max_results = 10 # TODO: change to 100 for live app            
+    max_results = 20
     topic = flask.request.args['topic'].strip()
     topic = re.sub(r'[^a-zA-Z\s]', '', topic)
     response_json = get_tweet_data(topic, max_results)                

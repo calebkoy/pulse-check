@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Caleb O.">
+    <meta name="description" content="Pulse Check is a tool that analyses the sentiment 
+                                      of tweets based on a given topic, using a Naive 
+                                      Bayes Classifier, a machine learning model often used 
+                                      for text classification and other natural language 
+                                      processing tasks.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">    
+    
+    <title>404 - Page Not Found | Pulse Check</title>
+  </head>
+  <body>    
+    <header>
+      <h1>404 - Page Not Found</h1>
+    </header>
+    <main>
+      <p>
+        It seems that the page you tried to access wasn't found. No problem! Head back to the 
+        <a href="{{ url_for('main') }}">home page</a> to find your way again.
+      </p>      
+    </main>    
+    <footer>
+      Crafted by <a href="https://github.com/calebowusu">Caleb O.</a> - &copy; 2020
+    </footer>
+  </body>  
+</html>

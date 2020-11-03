@@ -14,8 +14,14 @@ html {
   box-sizing: inherit; /* Inherit alternative box model */
 }
 
-body {
-  margin: 0 auto;    
+/*==================*/
+/* Home page styles */
+/*==================*/
+
+body {  
+  max-width: 60em;
+  margin: 0 auto;        
+  text-align: center;  
 }
 
 h1 {
@@ -25,12 +31,56 @@ h1 {
 
 h2 {
   font-family: 'Commissioner', sans-serif;
-  font-size: 3em;
+  font-size: 2.8em;
 }
 
 p {
   font-size: 1.7em;  
   line-height: 1.6;
+}
+
+ul, ol {
+  list-style-type: none;
+  font-size: 1.7em;   
+  padding: 0; 
+}
+
+li {
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+label {
+  display: block;  
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+input {
+  /* width: 20em; */
+  width: 85%;
+  padding: 0.2em;
+  margin-top: 0.5em;
+  font-size: 1em;
+}
+
+button {
+  font-size: 1em;
+  font-weight: bold;  
+  background-color: #6fc4f6;
+  border-width: 0;
+  border-radius: 0.3em;
+  padding: 0.4em;
+}
+
+button:focus,
+button:hover {    
+  background-color: #3fb1f3;
+  outline: none;
+}
+
+button:active {
+  background-color: #1da1f0;
 }
 
 footer {
@@ -41,16 +91,8 @@ footer {
   text-align: center;  
 }
 
-/*=================*/
-/* Home page style */
-/*=================*/
-
-.home-page {
-  max-width: 720px;
-  text-align: center;  
-}
-
-main {    
-  margin: 0 auto;
-  max-width: 80em;
+@media screen and (max-width: 650px) {
+  main {
+    margin: 0 24px;
+  }
 }
