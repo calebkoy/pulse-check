@@ -141,5 +141,5 @@ def main():
     else:
       return flask.render_template('main.html', no_show=True)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
   app.run()
