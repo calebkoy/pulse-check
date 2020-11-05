@@ -56,9 +56,9 @@
         <p>                
           Positive: {{ sentiment_percentages["positive"] }}%
           <ol>
-            {% for id in tweet_ids["positive"] %}
+            {% for author_id, tweet_id in tweet_ids["positive"] %}
             <li>          
-                <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+              <a href="https://twitter.com/{{ author_id }}/status/{{ tweet_id }}">Tweet {{ loop.index0 + 1 }}</a>            
             </li>
             {% endfor %}
           </ol>          
@@ -66,9 +66,9 @@
         <p>
           Negative: {{ sentiment_percentages["negative"] }}%
           <ol>
-            {% for id in tweet_ids["negative"] %}
+            {% for author_id, tweet_id in tweet_ids["negative"] %}
             <li>          
-                <a href="{{ tweet_base_url }}/{{ id }}">Tweet {{ loop.index0 + 1 }}</a>          
+              <a href="https://twitter.com/{{ author_id }}/status/{{ tweet_id }}">Tweet {{ loop.index0 + 1 }}</a>              
             </li>
             {% endfor %}
           </ol>          

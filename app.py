@@ -26,7 +26,7 @@ def make_request(bearer_token, url):
 
 def get_tweet_data(topic, max_results):  
   base_url = 'https://api.twitter.com/2/tweets/search/recent'  
-  parameters = f'query={topic}&tweet.fields=created_at,lang&max_results={max_results}&expansions=referenced_tweets.id'
+  parameters = f'query={topic}&tweet.fields=created_at,lang,author_id&max_results={max_results}&expansions=referenced_tweets.id'
   endpoint_url = f'{base_url}?{parameters}'    
   bearer_token = create_bearer_token(process_yaml())
   return make_request(bearer_token, endpoint_url)
@@ -90,13 +90,17 @@ def compute_sentiment_percentages(predictions):
   return {"positive": round(percent_positive * 100, 1),          
           "negative": round(percent_negative * 100, 1)}
 
-def get_tweet_ids_by_sentiment(predictions, tweet_ids):
+def get_ids_by_sentiment(predictions, tweet_ids, author_ids):
   positive_indices = np.asarray(predictions == Sentiment.POSITIVE.value).nonzero()
   negative_indices = np.asarray(predictions == Sentiment.NEGATIVE.value).nonzero()
   positive_tweet_ids = tweet_ids[positive_indices]
   negative_tweet_ids = tweet_ids[negative_indices]
-  return {"positive": positive_tweet_ids,          
-          "negative": negative_tweet_ids}
+  positive_author_ids = author_ids[positive_indices]
+  negative_author_ids = author_ids[negative_indices]
+  positive_ids = list(zip(positive_author_ids, positive_tweet_ids))
+  negative_ids = list(zip(negative_author_ids, negative_tweet_ids))
+  return {"positive": positive_ids,          
+          "negative": negative_ids}
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -107,7 +111,7 @@ def main():
   if not 'topic' in flask.request.args:
     return flask.render_template('main.html')    
   else:
-    max_results = 20
+    max_results = 20 
     topic = flask.request.args['topic'].strip()
     topic = re.sub(r'[^a-zA-Z\s]', '', topic)
     response_json = get_tweet_data(topic, max_results)                
@@ -118,19 +122,25 @@ def main():
     
       if (not response_json['data']):
         return flask.render_template('main.html', no_show=True)
+      
+      print(response_json, '\n')
       process_tweets(response_json) 
+      print(response_json, '\n')
       tweets = []
-      tweet_ids = []      
+      tweet_ids = []
+      author_ids = []  
       for tweet in response_json['data']:
         if tweet['text'] not in tweets:          
           tweets.append(tweet['text'])   
           tweet_ids.append(tweet['id'])       
+          author_ids.append(tweet['author_id'])
       with open('grid_search_NB_clf_sentiment140.pkl', 'rb') as f:
         classifier = pickle.load(f)
       predictions = classifier.predict(tweets)
       sentiment_percentages = compute_sentiment_percentages(predictions)
-      tweet_ids_by_sentiment = get_tweet_ids_by_sentiment(predictions, 
-                                                          np.array(tweet_ids))
+      tweet_ids_by_sentiment = get_ids_by_sentiment(predictions, 
+                                                    np.array(tweet_ids),
+                                                    np.array(author_ids))
       tweet_base_url = "https://twitter.com/i/web/status"      
       return flask.render_template('main.html', 
                                     original_topic=topic, 
