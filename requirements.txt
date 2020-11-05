@@ -3,6 +3,6 @@ flask
 gunicorn
 numpy
 pandas
+pyyaml
 requests
 twitter
-yaml
