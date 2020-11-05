@@ -27,15 +27,10 @@
     </header>
     <main>
       <p>
-        Enter and submit a topic in the input field below. Pulse Check will 
+        Enter and submit a topic below. Pulse Check will 
         predict the sentiment of the most recent tweets related to that topic, 
-        up to a maximum of 20 tweets.
-      </p>
-      <p>
-        Currently, Pulse Check only supports English tweets. Input any topic without 
-        leading or trailing whitespace and 
-        using only numbers and letters from the English alphabet.
-      </p>
+        up to a maximum of 20 tweets. Currently, Pulse Check only supports English tweets.
+      </p>      
       <form action="{{ url_for('main') }}" 
             method="GET" 
             autocomplete="off">
