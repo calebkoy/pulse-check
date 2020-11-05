@@ -1,0 +1,8 @@
+emoji
+flask
+gunicorn
+numpy
+pandas
+requests
+twitter
+yaml
