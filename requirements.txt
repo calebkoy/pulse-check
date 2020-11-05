@@ -1,8 +1,10 @@
 emoji
 flask
 gunicorn
+nltk
 numpy
 pandas
 pyyaml
 requests
+sklearn
 twitter
