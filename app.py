@@ -122,10 +122,8 @@ def main():
     
       if (not response_json['data']):
         return flask.render_template('main.html', no_show=True)
-      
-      print(response_json, '\n')
-      process_tweets(response_json) 
-      print(response_json, '\n')
+            
+      process_tweets(response_json)       
       tweets = []
       tweet_ids = []
       author_ids = []  
@@ -140,13 +138,11 @@ def main():
       sentiment_percentages = compute_sentiment_percentages(predictions)
       tweet_ids_by_sentiment = get_ids_by_sentiment(predictions, 
                                                     np.array(tweet_ids),
-                                                    np.array(author_ids))
-      tweet_base_url = "https://twitter.com/i/web/status"      
+                                                    np.array(author_ids))          
       return flask.render_template('main.html', 
                                     original_topic=topic, 
                                     sentiment_percentages=sentiment_percentages,
-                                    tweet_ids=tweet_ids_by_sentiment,
-                                    tweet_base_url=tweet_base_url,
+                                    tweet_ids=tweet_ids_by_sentiment,                                    
                                     total_tweets=len(tweets)) 
     else:
       return flask.render_template('main.html', no_show=True)

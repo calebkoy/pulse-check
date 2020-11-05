@@ -1,7 +1,3 @@
-/*================*/
-/* General styles */
-/*================*/
-
 html {
   box-sizing: border-box; /* Alternative box model */
   font-family: 'Roboto', sans-serif;
@@ -13,10 +9,6 @@ html {
 *::after {
   box-sizing: inherit; /* Inherit alternative box model */
 }
-
-/*==================*/
-/* Home page styles */
-/*==================*/
 
 body {  
   max-width: 60em;
